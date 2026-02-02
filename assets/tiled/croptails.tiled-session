@@ -31,6 +31,9 @@
             }
         },
         "maps/test_map_default.tmx": {
+            "expandedObjectLayers": [
+                10
+            ],
             "scale": 1.376015625,
             "selectedLayer": 2,
             "viewCenter": {
@@ -89,6 +92,7 @@
     ],
     "project": "croptails.tiled-project",
     "recentFiles": [
+        "maps/test_map_default.tmx",
         "tilesets/grass.tsx",
         "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx",
         "maps/test_map_tilemaps.tmx",

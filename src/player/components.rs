@@ -12,7 +12,9 @@ use bevy::{
     Name = "Player",
     Sprite,
     PlayerAnimation,
+    EquippedTool,
     RigidBody::Dynamic,
+    LockedAxes::ROTATION_LOCKED,
     Collider = Collider::capsule(3.0, 5.0),
     Speed = Speed(50.0),
   )]
@@ -77,6 +79,73 @@ pub enum PlayerAtlasKind {
 #[reflect(Component)]
 pub struct Moving;
 
+/// Marker: player is busy (using tool, etc.) - locks movement.
+#[derive(Component, Reflect, Default)]
+#[reflect(Component)]
+#[component(on_add = Self::on_add)]
+pub struct Busy;
+
+impl Busy {
+    fn on_add(mut world: DeferredWorld, ctx: HookContext) {
+        let entity = ctx.entity;
+        // Stop movement when busy
+        if let Some(mut velocity) = world.get_mut::<LinearVelocity>(entity) {
+            velocity.0 = Vec2::ZERO;
+        }
+        world.commands().entity(entity).remove::<Moving>();
+    }
+}
+
+/// Marker: player is currently chopping.
+#[derive(Component, Reflect, Default)]
+#[reflect(Component)]
+#[require(Busy)]
+#[component(on_remove = Self::on_remove)]
+pub struct Chopping;
+
+impl Chopping {
+    fn on_remove(mut world: DeferredWorld, ctx: HookContext) {
+        world.commands().entity(ctx.entity).remove::<Busy>();
+    }
+}
+
+/// Marker: player is currently tiling.
+#[derive(Component, Reflect, Default)]
+#[reflect(Component)]
+#[require(Busy)]
+#[component(on_remove = Self::on_remove)]
+pub struct Tiling;
+
+impl Tiling {
+    fn on_remove(mut world: DeferredWorld, ctx: HookContext) {
+        world.commands().entity(ctx.entity).remove::<Busy>();
+    }
+}
+
+/// Marker: player is currently watering.
+#[derive(Component, Reflect, Default)]
+#[reflect(Component)]
+#[require(Busy)]
+#[component(on_remove = Self::on_remove)]
+pub struct Watering;
+
+impl Watering {
+    fn on_remove(mut world: DeferredWorld, ctx: HookContext) {
+        world.commands().entity(ctx.entity).remove::<Busy>();
+    }
+}
+
+/// Currently equipped tool (editable as dropdown in inspector).
+#[derive(Component, Reflect, Default, Clone, Copy, PartialEq, Eq)]
+#[reflect(Component)]
+pub enum EquippedTool {
+    #[default]
+    None,
+    Axe,
+    Hoe,
+    WateringCan,
+}
+
 impl PlayerAnimation {
     pub fn frames(self) -> (usize, usize) {
         match self {
@@ -117,13 +186,69 @@ impl PlayerAnimation {
         }
     }
 
+    /// Whether this animation loops or plays once.
+    pub fn loops(self) -> bool {
+        matches!(
+            self,
+            Self::IdleFront
+                | Self::IdleBack
+                | Self::IdleLeft
+                | Self::IdleRight
+                | Self::WalkingFront
+                | Self::WalkingBack
+                | Self::WalkingLeft
+                | Self::WalkingRight
+        )
+    }
+
     /// Convert to idle animation, preserving direction.
     pub fn to_idle(self) -> Self {
         match self {
-            Self::WalkingFront => Self::IdleFront,
-            Self::WalkingBack => Self::IdleBack,
-            Self::WalkingLeft => Self::IdleLeft,
-            Self::WalkingRight => Self::IdleRight,
+            Self::WalkingFront | Self::ChoppingFront | Self::TilingFront | Self::WateringFront => {
+                Self::IdleFront
+            }
+            Self::WalkingBack | Self::ChoppingBack | Self::TilingBack | Self::WateringBack => {
+                Self::IdleBack
+            }
+            Self::WalkingLeft | Self::ChoppingLeft | Self::TilingLeft | Self::WateringLeft => {
+                Self::IdleLeft
+            }
+            Self::WalkingRight | Self::ChoppingRight | Self::TilingRight | Self::WateringRight => {
+                Self::IdleRight
+            }
+            other => other,
+        }
+    }
+
+    /// Convert to chopping animation, preserving direction.
+    pub fn to_chopping(self) -> Self {
+        match self {
+            Self::IdleFront | Self::WalkingFront => Self::ChoppingFront,
+            Self::IdleBack | Self::WalkingBack => Self::ChoppingBack,
+            Self::IdleLeft | Self::WalkingLeft => Self::ChoppingLeft,
+            Self::IdleRight | Self::WalkingRight => Self::ChoppingRight,
+            other => other,
+        }
+    }
+
+    /// Convert to tiling animation, preserving direction.
+    pub fn to_tiling(self) -> Self {
+        match self {
+            Self::IdleFront | Self::WalkingFront => Self::TilingFront,
+            Self::IdleBack | Self::WalkingBack => Self::TilingBack,
+            Self::IdleLeft | Self::WalkingLeft => Self::TilingLeft,
+            Self::IdleRight | Self::WalkingRight => Self::TilingRight,
+            other => other,
+        }
+    }
+
+    /// Convert to watering animation, preserving direction.
+    pub fn to_watering(self) -> Self {
+        match self {
+            Self::IdleFront | Self::WalkingFront => Self::WateringFront,
+            Self::IdleBack | Self::WalkingBack => Self::WateringBack,
+            Self::IdleLeft | Self::WalkingLeft => Self::WateringLeft,
+            Self::IdleRight | Self::WalkingRight => Self::WateringRight,
             other => other,
         }
     }

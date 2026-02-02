@@ -14,9 +14,5 @@
    eJzd0zEOgCAMBVAWdFUTHFATvf8lZZCEkBpLoS1x+BvR11/wxhifxIYMWcbsjEai6wqZs5xEKzQrdfYJcEE5kf+wL7NC38MYsT6sGWOLWZh9tcH4tpC1Y59mh3/xae0Y69Mylvik9+xCjo59pd3FHe9Ce6b4JHus8XG/FcrdkzTWdCdhbOXjeDMtdsvRpXvm5LDlXWL6dMlZbteXFYq0Rzo3OvdHpw==
   </data>
  </layer>
- <objectgroup id="10" name="Spawns">
-  <object id="1" name="PlayerSpawn" x="264" y="134">
-   <point/>
-  </object>
- </objectgroup>
+ <objectgroup id="10" name="Spawns"/>
 </map>

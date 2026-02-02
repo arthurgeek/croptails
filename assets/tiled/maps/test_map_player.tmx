@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="1">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="2">
  <tileset firstgid="1" source="../tilesets/water.tsx"/>
  <tileset firstgid="5" source="../tilesets/grass.tsx"/>
  <tileset firstgid="82" source="../tilesets/tilled_dirt_wide.tsx"/>
@@ -14,4 +14,9 @@
    eJzd0zEOgCAMBVAWdFUTHFATvf8lZZCEkBpLoS1x+BvR11/wxhifxIYMWcbsjEai6wqZs5xEKzQrdfYJcEE5kf+wL7NC38MYsT6sGWOLWZh9tcH4tpC1Y59mh3/xae0Y69Mylvik9+xCjo59pd3FHe9Ce6b4JHus8XG/FcrdkzTWdCdhbOXjeDMtdsvRpXvm5LDlXWL6dMlZbteXFYq0Rzo3OvdHpw==
   </data>
  </layer>
+ <objectgroup id="10" name="Spawn">
+  <object id="1" name="PlayerSpawn" x="233" y="137">
+   <point/>
+  </object>
+ </objectgroup>
 </map>

@@ -1,9 +1,11 @@
 use super::{
-    components::{Moving, Player, PlayerAnimation},
+    components::{Busy, Chopping, EquippedTool, Moving, Player, PlayerAnimation, Tiling, Watering},
     resources::{PlayerActionsAtlas, PlayerAtlas, PlayerDirection},
     systems::{
-        apply_player_movement, detect_player_input, load_player_actions_atlas, load_player_atlas,
-        on_start_moving, on_stop_moving, spawn_player_at_spawn_point, sync_player_animation,
+        apply_player_movement, detect_player_input, handle_tool_action, load_player_actions_atlas,
+        load_player_atlas, on_start_chopping, on_start_moving, on_start_tiling, on_start_watering,
+        on_stop_moving, remove_chopping_on_animation_end, remove_tiling_on_animation_end,
+        remove_watering_on_animation_end, spawn_player_at_spawn_point, sync_player_animation,
         update_moving_state, update_walking_direction,
     },
 };
@@ -26,6 +28,11 @@ impl Plugin for PlayerPlugin {
             .register_type::<PlayerActionsAtlas>()
             .register_type::<Player>()
             .register_type::<Moving>()
+            .register_type::<Busy>()
+            .register_type::<Chopping>()
+            .register_type::<Tiling>()
+            .register_type::<Watering>()
+            .register_type::<EquippedTool>()
             .register_type::<PlayerAnimation>()
             .register_type::<PlayerDirection>()
             .init_resource::<PlayerDirection>()
@@ -36,8 +43,8 @@ impl Plugin for PlayerPlugin {
             )
             .add_systems(Startup, (load_player_atlas, load_player_actions_atlas))
             .add_systems(Update, spawn_player_at_spawn_point)
-            // Input detection runs in Update (every frame) for responsive input
-            .add_systems(Update, detect_player_input)
+            // Input runs in Update (every frame) for responsive input
+            .add_systems(Update, (detect_player_input, handle_tool_action))
             // Movement and animation run in FixedUpdate (synced with physics)
             .add_systems(
                 FixedUpdate,
@@ -51,6 +58,12 @@ impl Plugin for PlayerPlugin {
                     (
                         on_start_moving,
                         on_stop_moving,
+                        on_start_chopping,
+                        on_start_tiling,
+                        on_start_watering,
+                        remove_chopping_on_animation_end,
+                        remove_tiling_on_animation_end,
+                        remove_watering_on_animation_end,
                         update_walking_direction.run_if(resource_changed::<PlayerDirection>),
                         sync_player_animation,
                     )

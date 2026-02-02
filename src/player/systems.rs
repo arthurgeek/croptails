@@ -1,9 +1,12 @@
 use super::{
-    components::{Moving, Player, PlayerAnimation, PlayerAtlasKind},
+    components::{
+        Busy, Chopping, EquippedTool, Moving, Player, PlayerAnimation, PlayerAtlasKind, Tiling,
+        Watering,
+    },
     resources::{PlayerActionsAtlas, PlayerAtlas},
 };
 use crate::{
-    core::components::{Speed, SpriteAnimation},
+    core::components::{AnimationFinished, Speed, SpriteAnimation},
     player::resources::PlayerDirection,
 };
 use avian2d::prelude::*;
@@ -84,9 +87,10 @@ pub fn detect_player_input(
 }
 
 /// Applies velocity to player based on input direction and speed.
+/// Skipped when player is Busy (using tool).
 pub fn apply_player_movement(
     direction: Res<PlayerDirection>,
-    mut player: Query<(&mut LinearVelocity, &Speed), With<Player>>,
+    mut player: Query<(&mut LinearVelocity, &Speed), (With<Player>, Without<Busy>)>,
 ) {
     for (mut velocity, speed) in &mut player {
         velocity.0 = direction.0.normalize_or_zero() * speed.0;
@@ -94,10 +98,11 @@ pub fn apply_player_movement(
 }
 
 /// Adds/removes Moving marker based on input.
+/// Skipped when player is Busy (using tool).
 pub fn update_moving_state(
     mut commands: Commands,
     direction: Res<PlayerDirection>,
-    player: Query<(Entity, Has<Moving>), With<Player>>,
+    player: Query<(Entity, Has<Moving>), (With<Player>, Without<Busy>)>,
 ) {
     for (entity, is_moving) in &player {
         let has_direction = direction.0 != Vec2::ZERO;
@@ -157,6 +162,51 @@ fn walking_animation_for(dir: Vec2) -> PlayerAnimation {
     }
 }
 
+/// Triggers tool action when Space is pressed.
+pub fn handle_tool_action(
+    mut commands: Commands,
+    keyboard: Res<ButtonInput<KeyCode>>,
+    player: Query<(Entity, &EquippedTool, Has<Busy>), With<Player>>,
+) {
+    if !keyboard.just_pressed(KeyCode::Space) {
+        return;
+    }
+
+    for (entity, tool, is_busy) in &player {
+        // Only trigger if not already performing an action
+        if is_busy {
+            continue;
+        }
+
+        match tool {
+            EquippedTool::Axe => {
+                commands.entity(entity).insert(Chopping);
+            }
+            EquippedTool::Hoe => {
+                commands.entity(entity).insert(Tiling);
+            }
+            EquippedTool::WateringCan => {
+                commands.entity(entity).insert(Watering);
+            }
+            EquippedTool::None => {}
+        }
+    }
+}
+
+/// Switches to chopping animation when Chopping is added.
+pub fn on_start_chopping(mut player: Query<&mut PlayerAnimation, Added<Chopping>>) {
+    for mut anim in &mut player {
+        *anim = (*anim).to_chopping();
+    }
+}
+
+/// Switches to tiling animation when Tiling is added.
+pub fn on_start_tiling(mut player: Query<&mut PlayerAnimation, Added<Tiling>>) {
+    for mut anim in &mut player {
+        *anim = (*anim).to_tiling();
+    }
+}
+
 /// Syncs SpriteAnimation and atlas when PlayerAnimation changes.
 pub fn sync_player_animation(
     mut commands: Commands,
@@ -166,9 +216,18 @@ pub fn sync_player_animation(
 ) {
     for (entity, anim, mut sprite) in &mut player {
         let (first, last) = anim.frames();
+
+        // Use looping or one-shot based on animation type
+        let sprite_anim = if anim.loops() {
+            SpriteAnimation::new(first, last, 3)
+        } else {
+            SpriteAnimation::once(first, last, 3)
+        };
+
         commands
             .entity(entity)
-            .insert(SpriteAnimation::new(first, last, 3));
+            .insert(sprite_anim)
+            .remove::<AnimationFinished>(); // Clear previous finish state
 
         // Swap texture and layout based on which atlas this animation uses
         let (texture, layout) = match anim.atlas_kind() {
@@ -184,5 +243,45 @@ pub fn sync_player_animation(
             layout,
             index: first,
         });
+    }
+}
+
+/// Removes Chopping marker and returns to idle when animation ends.
+pub fn remove_chopping_on_animation_end(
+    mut commands: Commands,
+    mut player: Query<(Entity, &mut PlayerAnimation), (With<Chopping>, Added<AnimationFinished>)>,
+) {
+    for (entity, mut anim) in &mut player {
+        *anim = (*anim).to_idle();
+        commands.entity(entity).remove::<Chopping>();
+    }
+}
+
+/// Removes Tiling marker and returns to idle when animation ends.
+pub fn remove_tiling_on_animation_end(
+    mut commands: Commands,
+    mut player: Query<(Entity, &mut PlayerAnimation), (With<Tiling>, Added<AnimationFinished>)>,
+) {
+    for (entity, mut anim) in &mut player {
+        *anim = (*anim).to_idle();
+        commands.entity(entity).remove::<Tiling>();
+    }
+}
+
+/// Switches to watering animation when Watering is added.
+pub fn on_start_watering(mut player: Query<&mut PlayerAnimation, Added<Watering>>) {
+    for mut anim in &mut player {
+        *anim = (*anim).to_watering();
+    }
+}
+
+/// Removes Watering marker and returns to idle when animation ends.
+pub fn remove_watering_on_animation_end(
+    mut commands: Commands,
+    mut player: Query<(Entity, &mut PlayerAnimation), (With<Watering>, Added<AnimationFinished>)>,
+) {
+    for (entity, mut anim) in &mut player {
+        *anim = (*anim).to_idle();
+        commands.entity(entity).remove::<Watering>();
     }
 }

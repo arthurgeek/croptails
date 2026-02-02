@@ -1,13 +1,17 @@
 use bevy::{prelude::*, window::WindowResolution};
 
 mod camera;
+mod core;
 #[cfg(feature = "debug")]
 mod debug;
 mod physics;
+mod player;
 mod tiled;
 
 use camera::CameraPlugin;
+use core::CorePlugin;
 use physics::PhysicsPlugin;
+use player::PlayerPlugin;
 use tiled::TiledPlugin;
 
 fn main() -> AppExit {
@@ -28,6 +32,8 @@ fn main() -> AppExit {
         PhysicsPlugin,
         CameraPlugin,
         TiledPlugin,
+        CorePlugin,
+        PlayerPlugin,
     ));
 
     #[cfg(feature = "debug")]

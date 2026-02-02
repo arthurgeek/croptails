@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="1">
+ <tileset firstgid="1" source="../tilesets/water.tsx"/>
+ <tileset firstgid="5" source="../tilesets/grass.tsx"/>
+ <tileset firstgid="82" source="../tilesets/tilled_dirt_wide.tsx"/>
+ <tileset firstgid="159" source="../tilesets/basic_grass_biome_things.tsx"/>
+ <layer id="1" name="Water" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztw0ENAAAMA6Grf9OzsQckrJqqqqrvH7f5A3E=
+  </data>
+ </layer>
+ <layer id="7" name="Grass" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzd0zEOgCAMBVAWdFUTHFATvf8lZZCEkBpLoS1x+BvR11/wxhifxIYMWcbsjEai6wqZs5xEKzQrdfYJcEE5kf+wL7NC38MYsT6sGWOLWZh9tcH4tpC1Y59mh3/xae0Y69Mylvik9+xCjo59pd3FHe9Ce6b4JHus8XG/FcrdkzTWdCdhbOXjeDMtdsvRpXvm5LDlXWL6dMlZbteXFYq0Rzo3OvdHpw==
+  </data>
+ </layer>
+</map>

@@ -8,6 +8,20 @@
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx": {
+            "scale": 3.615,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 334.8547717842323,
+                "y": 352.9737206085753
+            }
+        },
+        "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx#coin": {
+            "scaleInDock": 1
+        },
+        "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx#world_tileset": {
+            "scaleInDock": 1
+        },
         "maps/test_map.tmx": {
             "scale": 1.3199,
             "selectedLayer": 3,
@@ -18,7 +32,7 @@
         },
         "maps/test_map_default.tmx": {
             "scale": 1.376015625,
-            "selectedLayer": 0,
+            "selectedLayer": 2,
             "viewCenter": {
                 "x": 320.12717878839493,
                 "y": 175.87009595185376
@@ -45,7 +59,7 @@
         },
         "tilesets/grass.tsx": {
             "scaleInDock": 1.9382,
-            "scaleInEditor": 4.2933
+            "scaleInEditor": 5.6917
         },
         "tilesets/maps:test_map.tmx": {
             "scale": 2.8606,
@@ -75,9 +89,10 @@
     ],
     "project": "croptails.tiled-project",
     "recentFiles": [
+        "tilesets/grass.tsx",
+        "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx",
         "maps/test_map_tilemaps.tmx",
         "maps/test_map.tmx",
-        "tilesets/grass.tsx",
         "tilesets/basic_grass_biome_things.tsx",
         "tilesets/tilled_dirt_wide.tsx",
         "tilesets/game.tsx",

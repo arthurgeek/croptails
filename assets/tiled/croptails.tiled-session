@@ -1,0 +1,93 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "maps/test_map.tmx": {
+            "scale": 1.3199,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 281.4607167209637,
+                "y": 192.43882112281233
+            }
+        },
+        "maps/test_map_default.tmx": {
+            "scale": 1.376015625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.12717878839493,
+                "y": 175.87009595185376
+            }
+        },
+        "maps/test_map_tilemaps.tmx": {
+            "scale": 1.376015625,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 320.12717878839493,
+                "y": 175.87009595185376
+            }
+        },
+        "maps/water.tsx": {
+            "scaleInDock": 1
+        },
+        "tilesets/basic_grass_biome_things.tsx": {
+            "scaleInDock": 2.7555,
+            "scaleInEditor": 3.5441
+        },
+        "tilesets/game.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/grass.tsx": {
+            "scaleInDock": 1.9382,
+            "scaleInEditor": 4.2933
+        },
+        "tilesets/maps:test_map.tmx": {
+            "scale": 2.8606,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 141.05432426763613,
+                "y": 98.93029434384394
+            }
+        },
+        "tilesets/tilled_dirt_wide.tsx": {
+            "scaleInDock": 1.8285,
+            "scaleInEditor": 1.9967
+        },
+        "tilesets/water.tsx": {
+            "scaleInDock": 3.0225,
+            "scaleInEditor": 7.49
+        }
+    },
+    "frame.defaultDuration": 200,
+    "last.externalTilesetPath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/tilesets",
+    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/game/objects",
+    "map.lastUsedFormat": "tmx",
+    "map.layerDataFormat": "3",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+    ],
+    "project": "croptails.tiled-project",
+    "recentFiles": [
+        "maps/test_map_tilemaps.tmx",
+        "maps/test_map.tmx",
+        "tilesets/grass.tsx",
+        "tilesets/basic_grass_biome_things.tsx",
+        "tilesets/tilled_dirt_wide.tsx",
+        "tilesets/game.tsx",
+        "tilesets/water.tsx",
+        "tilesets/maps:test_map.tmx"
+    ],
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

@@ -1,5 +1,5 @@
 use super::resources::PlayerAtlas;
-use crate::core::components::Speed;
+use crate::{core::components::Speed, physics::GameLayer};
 use avian2d::prelude::*;
 use bevy::{
     ecs::{lifecycle::HookContext, world::DeferredWorld},
@@ -15,13 +15,15 @@ use bevy::{
     EquippedTool,
     RigidBody::Dynamic,
     LockedAxes::ROTATION_LOCKED,
-    Collider = Collider::capsule(3.0, 5.0),
     Speed = Speed(50.0),
   )]
 #[component(on_add = Self::on_add)]
 pub struct Player;
 
 impl Player {
+    /// Vertical offset for the collider (negative = down from center)
+    const COLLIDER_OFFSET_Y: f32 = -4.0;
+
     fn on_add(mut world: DeferredWorld, ctx: HookContext) {
         let entity = ctx.entity;
 
@@ -38,6 +40,14 @@ impl Player {
             sprite.image = texture;
             sprite.texture_atlas = Some(TextureAtlas { layout, index: 0 });
         }
+
+        // Spawn collider as child with offset (so it's at the player's feet)
+        // Player is on Player layer, collides with Default layer
+        world.commands().entity(entity).with_child((
+            Collider::capsule(3.0, 3.0),
+            Transform::from_translation(Vec3::new(0.0, Self::COLLIDER_OFFSET_Y, 0.0)),
+            CollisionLayers::new(GameLayer::Player, [GameLayer::Default, GameLayer::Interactable]),
+        ));
     }
 }
 

@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "maps/test_map_house.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -21,6 +21,14 @@
         },
         "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx#world_tileset": {
             "scaleInDock": 1
+        },
+        "maps/houses/large_house.tmx": {
+            "scale": 4.4006,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 102.82688724264874,
+                "y": 62.26423669499614
+            }
         },
         "maps/test_map.tmx": {
             "scale": 1.3199,
@@ -41,6 +49,25 @@
                 "y": 175.87009595185376
             }
         },
+        "maps/test_map_house.tmx": {
+            "expandedObjectLayers": [
+                11
+            ],
+            "scale": 2.3301,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 403.2015793313592,
+                "y": 94.84571477618985
+            }
+        },
+        "maps/test_map_player.tmx": {
+            "scale": 1.376015625,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 320.12717878839493,
+                "y": 175.87009595185376
+            }
+        },
         "maps/test_map_tilemaps.tmx": {
             "scale": 1.376015625,
             "selectedLayer": 0,
@@ -52,9 +79,17 @@
         "maps/water.tsx": {
             "scaleInDock": 1
         },
+        "tilesets/basic_furniture.tsx": {
+            "scaleInDock": 2.4413,
+            "scaleInEditor": 4.5329
+        },
         "tilesets/basic_grass_biome_things.tsx": {
             "scaleInDock": 2.7555,
             "scaleInEditor": 3.5441
+        },
+        "tilesets/doors.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 6.552
         },
         "tilesets/game.tsx": {
             "scaleInDock": 1,
@@ -63,6 +98,13 @@
         "tilesets/grass.tsx": {
             "scaleInDock": 1.9382,
             "scaleInEditor": 5.6917
+        },
+        "tilesets/house.tsx": {
+            "scaleInDock": 3.0407,
+            "scaleInEditor": 3.6426
+        },
+        "tilesets/house_prefabs.tsx": {
+            "scaleInEditor": 3.08
         },
         "tilesets/maps:test_map.tmx": {
             "scale": 2.8606,
@@ -83,27 +125,39 @@
     },
     "frame.defaultDuration": 200,
     "last.externalTilesetPath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/tilesets",
-    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/game/objects",
+    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/game/tilesets",
+    "last.objectTypesPath": "/Users/arthurzapparoli/Development/rust/croptails/tiled_types_export.json",
+    "last.worldFilePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/maps/worlds",
+    "loadedWorlds": [
+        "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/maps/worlds/test_house.world"
+    ],
+    "map.height": 22,
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": "3",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
+    "map.width": 40,
+    "mapScene.enableWorlds": true,
     "openFiles": [
+        "maps/test_map_house.tmx"
     ],
     "project": "croptails.tiled-project",
+    "property.type": "croptails::door::components::Door",
     "recentFiles": [
+        "tilesets/doors.tsx",
+        "tilesets/house_prefabs.tsx",
+        "maps/houses/large_house.tmx",
+        "tilesets/basic_furniture.tsx",
+        "maps/test_map_house.tmx",
+        "tilesets/house.tsx",
+        "maps/test_map_player.tmx",
         "maps/test_map_default.tmx",
         "tilesets/grass.tsx",
         "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx",
         "maps/test_map_tilemaps.tmx",
-        "maps/test_map.tmx",
-        "tilesets/basic_grass_biome_things.tsx",
-        "tilesets/tilled_dirt_wide.tsx",
-        "tilesets/game.tsx",
-        "tilesets/water.tsx",
-        "tilesets/maps:test_map.tmx"
+        "maps/test_map.tmx"
     ],
-    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
+    "tileset.lastUsedFilter": "All Files (*)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
         "height": 16,

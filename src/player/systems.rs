@@ -12,6 +12,7 @@ use crate::{
 use avian2d::prelude::*;
 use bevy::prelude::*;
 use bevy_ecs_tiled::prelude::*;
+use moonshine_kind::Instance;
 
 /// Loads the base player spritesheet (idle animations).
 pub fn load_player_atlas(
@@ -102,15 +103,15 @@ pub fn apply_player_movement(
 pub fn update_moving_state(
     mut commands: Commands,
     direction: Res<PlayerDirection>,
-    player: Query<(Entity, Has<Moving>), (With<Player>, Without<Busy>)>,
+    player: Query<(Instance<Player>, Has<Moving>), Without<Busy>>,
 ) {
-    for (entity, is_moving) in &player {
+    for (player, is_moving) in &player {
         let has_direction = direction.0 != Vec2::ZERO;
 
         if has_direction && !is_moving {
-            commands.entity(entity).insert(Moving);
+            commands.entity(player.entity()).insert(Moving);
         } else if !has_direction && is_moving {
-            commands.entity(entity).remove::<Moving>();
+            commands.entity(player.entity()).remove::<Moving>();
         }
     }
 }
@@ -166,13 +167,13 @@ fn walking_animation_for(dir: Vec2) -> PlayerAnimation {
 pub fn handle_tool_action(
     mut commands: Commands,
     keyboard: Res<ButtonInput<KeyCode>>,
-    player: Query<(Entity, &EquippedTool, Has<Busy>), With<Player>>,
+    player: Query<(Instance<Player>, &EquippedTool, Has<Busy>)>,
 ) {
     if !keyboard.just_pressed(KeyCode::Space) {
         return;
     }
 
-    for (entity, tool, is_busy) in &player {
+    for (player, tool, is_busy) in &player {
         // Only trigger if not already performing an action
         if is_busy {
             continue;
@@ -180,13 +181,13 @@ pub fn handle_tool_action(
 
         match tool {
             EquippedTool::Axe => {
-                commands.entity(entity).insert(Chopping);
+                commands.entity(player.entity()).insert(Chopping);
             }
             EquippedTool::Hoe => {
-                commands.entity(entity).insert(Tiling);
+                commands.entity(player.entity()).insert(Tiling);
             }
             EquippedTool::WateringCan => {
-                commands.entity(entity).insert(Watering);
+                commands.entity(player.entity()).insert(Watering);
             }
             EquippedTool::None => {}
         }
@@ -212,9 +213,9 @@ pub fn sync_player_animation(
     mut commands: Commands,
     base_atlas: Res<PlayerAtlas>,
     actions_atlas: Res<PlayerActionsAtlas>,
-    mut player: Query<(Entity, &PlayerAnimation, &mut Sprite), Changed<PlayerAnimation>>,
+    mut player: Query<(Instance<Player>, &PlayerAnimation, &mut Sprite), Changed<PlayerAnimation>>,
 ) {
-    for (entity, anim, mut sprite) in &mut player {
+    for (player, anim, mut sprite) in &mut player {
         let (first, last) = anim.frames();
 
         // Use looping or one-shot based on animation type
@@ -225,7 +226,7 @@ pub fn sync_player_animation(
         };
 
         commands
-            .entity(entity)
+            .entity(player.entity())
             .insert(sprite_anim)
             .remove::<AnimationFinished>(); // Clear previous finish state
 
@@ -249,22 +250,22 @@ pub fn sync_player_animation(
 /// Removes Chopping marker and returns to idle when animation ends.
 pub fn remove_chopping_on_animation_end(
     mut commands: Commands,
-    mut player: Query<(Entity, &mut PlayerAnimation), (With<Chopping>, Added<AnimationFinished>)>,
+    mut player: Query<(Instance<Player>, &mut PlayerAnimation), (With<Chopping>, Added<AnimationFinished>)>,
 ) {
-    for (entity, mut anim) in &mut player {
+    for (player, mut anim) in &mut player {
         *anim = (*anim).to_idle();
-        commands.entity(entity).remove::<Chopping>();
+        commands.entity(player.entity()).remove::<Chopping>();
     }
 }
 
 /// Removes Tiling marker and returns to idle when animation ends.
 pub fn remove_tiling_on_animation_end(
     mut commands: Commands,
-    mut player: Query<(Entity, &mut PlayerAnimation), (With<Tiling>, Added<AnimationFinished>)>,
+    mut player: Query<(Instance<Player>, &mut PlayerAnimation), (With<Tiling>, Added<AnimationFinished>)>,
 ) {
-    for (entity, mut anim) in &mut player {
+    for (player, mut anim) in &mut player {
         *anim = (*anim).to_idle();
-        commands.entity(entity).remove::<Tiling>();
+        commands.entity(player.entity()).remove::<Tiling>();
     }
 }
 
@@ -278,10 +279,10 @@ pub fn on_start_watering(mut player: Query<&mut PlayerAnimation, Added<Watering>
 /// Removes Watering marker and returns to idle when animation ends.
 pub fn remove_watering_on_animation_end(
     mut commands: Commands,
-    mut player: Query<(Entity, &mut PlayerAnimation), (With<Watering>, Added<AnimationFinished>)>,
+    mut player: Query<(Instance<Player>, &mut PlayerAnimation), (With<Watering>, Added<AnimationFinished>)>,
 ) {
-    for (entity, mut anim) in &mut player {
+    for (player, mut anim) in &mut player {
         *anim = (*anim).to_idle();
-        commands.entity(entity).remove::<Watering>();
+        commands.entity(player.entity()).remove::<Watering>();
     }
 }

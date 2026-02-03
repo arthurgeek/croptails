@@ -1,7 +1,7 @@
 use bevy::prelude::*;
 use std::time::Duration;
 
-/// Sprite animation with optional looping.
+/// Sprite animation with optional looping (sequential frames).
 #[derive(Component, Reflect)]
 #[reflect(Component)]
 pub struct SpriteAnimation {
@@ -31,6 +31,43 @@ impl SpriteAnimation {
             looping: false,
             ..Self::new(first, last, fps)
         }
+    }
+}
+
+/// Sprite animation with non-sequential frame list.
+#[derive(Component, Reflect)]
+#[reflect(Component)]
+pub struct SequenceAnimation {
+    pub frames: Vec<usize>,
+    pub current: usize,
+    pub timer: Timer,
+    pub looping: bool,
+}
+
+impl SequenceAnimation {
+    /// Looping sequence animation.
+    pub fn new(frames: Vec<usize>, fps: u8) -> Self {
+        Self {
+            frames,
+            current: 0,
+            timer: Timer::new(
+                Duration::from_secs_f32(1.0 / fps as f32),
+                TimerMode::Repeating,
+            ),
+            looping: true,
+        }
+    }
+
+    /// One-shot sequence animation (plays once, then adds AnimationFinished).
+    pub fn once(frames: Vec<usize>, fps: u8) -> Self {
+        Self {
+            looping: false,
+            ..Self::new(frames, fps)
+        }
+    }
+
+    pub fn current_frame(&self) -> Option<usize> {
+        self.frames.get(self.current).copied()
     }
 }
 

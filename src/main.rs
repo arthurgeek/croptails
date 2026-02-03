@@ -4,12 +4,16 @@ mod camera;
 mod core;
 #[cfg(feature = "debug")]
 mod debug;
+mod door;
+mod interactable;
 mod physics;
 mod player;
 mod tiled;
 
 use camera::CameraPlugin;
 use core::CorePlugin;
+use door::DoorPlugin;
+use interactable::InteractablePlugin;
 use physics::PhysicsPlugin;
 use player::PlayerPlugin;
 use tiled::TiledPlugin;
@@ -34,6 +38,8 @@ fn main() -> AppExit {
         TiledPlugin,
         CorePlugin,
         PlayerPlugin,
+        DoorPlugin,
+        InteractablePlugin,
     ));
 
     #[cfg(feature = "debug")]

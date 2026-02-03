@@ -11,13 +11,14 @@ debug = ["bevy-inspector-egui", "bevy/debug", "avian2d/diagnostic_ui"]
 avian2d = "0.5"
 bevy = { version = "0.18", default-features = false, features = ["2d"] }
 bevy-inspector-egui = { version = "0.36", optional = true }
-bevy_ecs_tiled = { version = "0.11", features = ["avian"] }
+bevy_ecs_tiled = { version = "0.11", features = ["avian", "user_properties"] }
 
 # Set max log levels. This helps avoid unwanted low-severity log spam, which can affect performance.
 log = { version = "0.4", features = [
     "max_level_debug",
     "release_max_level_warn",
 ] }
+moonshine-kind = "0.4"
 tracing = { version = "0.1", features = [
     "max_level_debug",
     "release_max_level_warn",

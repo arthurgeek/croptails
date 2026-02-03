@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="9" height="7" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="2">
+ <tileset firstgid="1" source="../../tilesets/house.tsx"/>
+ <tileset firstgid="16" source="../../tilesets/basic_furniture.tsx"/>
+ <tileset firstgid="70" source="../../tilesets/doors.tsx"/>
+ <layer id="1" name="Floor" width="9" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAOsOPBQ1UNAH9QASc=
+  </data>
+ </layer>
+ <layer id="2" name="Walls" width="9" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjZGBgYAJiPhw0MxCzMeAHHINQDTcQ8zBA/MEDFUfm8wIxAFy0AOE=
+  </data>
+ </layer>
+ <layer id="3" name="Furniture" width="9" height="7">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgMGKAAEEoLQSlYeIgIAnEwgyoQASIpZH4SkhsDSS2ChLbgYFhAYhWA2I9IFaHijtBxUHAEYmtiaTXGUlcFIjt0dxjBzWTWAAA+7YGOw==
+  </data>
+ </layer>
+ <objectgroup id="5" name="Objects">
+  <object id="1" gid="71" x="64" y="112" width="16" height="16">
+   <properties>
+    <property name="Door" type="class" propertytype="croptails::door::components::Door"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -8,6 +8,9 @@
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
         "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx": {
             "scale": 3.615,
             "selectedLayer": 5,
@@ -23,11 +26,30 @@
             "scaleInDock": 1
         },
         "maps/houses/large_house.tmx": {
+            "expandedObjectLayers": [
+                5
+            ],
             "scale": 4.4006,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 102.82688724264874,
-                "y": 62.26423669499614
+                "x": 81.01168022542382,
+                "y": 52.26560014543472
+            }
+        },
+        "maps/houses/medium_house.tmx": {
+            "scale": 2.8577,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 110.75340308639815,
+                "y": 54.239423312454065
+            }
+        },
+        "maps/houses/small_house.tmx": {
+            "scale": 4.1301,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 68.64240575288734,
+                "y": 60.53122200430984
             }
         },
         "maps/test_map.tmx": {
@@ -51,13 +73,14 @@
         },
         "maps/test_map_house.tmx": {
             "expandedObjectLayers": [
+                10,
                 11
             ],
             "scale": 2.3301,
-            "selectedLayer": 3,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 403.2015793313592,
-                "y": 94.84571477618985
+                "x": 243.55177889360976,
+                "y": 115.44568902622206
             }
         },
         "maps/test_map_player.tmx": {
@@ -114,6 +137,14 @@
                 "y": 98.93029434384394
             }
         },
+        "tilesets/medium_house.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tilesets/small_house.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "tilesets/tilled_dirt_wide.tsx": {
             "scaleInDock": 1.8285,
             "scaleInEditor": 1.9967
@@ -125,7 +156,7 @@
     },
     "frame.defaultDuration": 200,
     "last.externalTilesetPath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/tilesets",
-    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/game/tilesets",
+    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/maps/houses",
     "last.objectTypesPath": "/Users/arthurzapparoli/Development/rust/croptails/tiled_types_export.json",
     "last.worldFilePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/maps/worlds",
     "loadedWorlds": [
@@ -142,25 +173,26 @@
         "maps/test_map_house.tmx"
     ],
     "project": "croptails.tiled-project",
-    "property.type": "croptails::door::components::Door",
+    "property.type": "string",
     "recentFiles": [
-        "tilesets/doors.tsx",
+        "maps/houses/small_house.tmx",
+        "tilesets/small_house.tsx",
+        "maps/houses/medium_house.tmx",
+        "tilesets/medium_house.tsx",
         "tilesets/house_prefabs.tsx",
         "maps/houses/large_house.tmx",
+        "tilesets/doors.tsx",
         "tilesets/basic_furniture.tsx",
         "maps/test_map_house.tmx",
         "tilesets/house.tsx",
         "maps/test_map_player.tmx",
-        "maps/test_map_default.tmx",
-        "tilesets/grass.tsx",
-        "/Users/arthurzapparoli/Development/rust/knight_jumper/assets/maps/main.tmx",
-        "maps/test_map_tilemaps.tmx",
-        "maps/test_map.tmx"
+        "maps/test_map_default.tmx"
     ],
+    "tileset.embedInMap": false,
     "tileset.lastUsedFilter": "All Files (*)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 16,
-        "width": 16
+        "height": 80,
+        "width": 112
     }
 }

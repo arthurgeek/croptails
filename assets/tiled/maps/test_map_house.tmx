@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="4">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="6">
  <tileset firstgid="1" source="../tilesets/water.tsx"/>
  <tileset firstgid="5" source="../tilesets/grass.tsx"/>
  <tileset firstgid="82" source="../tilesets/tilled_dirt_wide.tsx"/>
@@ -8,6 +8,8 @@
  <tileset firstgid="205" source="../tilesets/house.tsx"/>
  <tileset firstgid="220" source="../tilesets/basic_furniture.tsx"/>
  <tileset firstgid="274" source="../tilesets/doors.tsx"/>
+ <tileset firstgid="278" source="../tilesets/medium_house.tsx"/>
+ <tileset firstgid="279" source="../tilesets/small_house.tsx"/>
  <layer id="1" name="Water" width="40" height="22">
   <data encoding="base64" compression="zlib">
    eJztw0ENAAAMA6Grf9OzsQckrJqqqqrvH7f5A3E=
@@ -24,9 +26,19 @@
     <property name="map_file" value="houses/large_house.tmx"/>
    </properties>
   </object>
+  <object id="4" gid="278" x="54" y="134" width="144" height="112">
+   <properties>
+    <property name="map_file" value="houses/medium_house.tmx"/>
+   </properties>
+  </object>
+  <object id="5" gid="279" x="225" y="136" width="112" height="80">
+   <properties>
+    <property name="map_file" value="houses/small_house.tmx"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="10" name="Spawn">
-  <object id="1" name="PlayerSpawn" x="233" y="137">
+  <object id="1" name="PlayerSpawn" x="210" y="164">
    <point/>
   </object>
  </objectgroup>

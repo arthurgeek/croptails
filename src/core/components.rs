@@ -80,3 +80,30 @@ pub struct AnimationFinished;
 #[derive(Component, Reflect, Default)]
 #[reflect(Component)]
 pub struct Speed(pub f32);
+
+/// Health for damageable targets (trees, rocks, etc.).
+#[derive(Component, Reflect)]
+#[reflect(Component)]
+pub struct Health {
+    pub current: f32,
+    pub max: f32,
+}
+
+impl Default for Health {
+    fn default() -> Self {
+        Self {
+            current: 3.0,
+            max: 3.0,
+        }
+    }
+}
+
+/// Damage dealt by tools (axe, etc.).
+#[derive(Component, Reflect, Default)]
+#[reflect(Component)]
+pub struct Damage(pub f32);
+
+/// Marker: tool is currently active (during tool action).
+#[derive(Component, Reflect, Default)]
+#[reflect(Component)]
+pub struct Active;

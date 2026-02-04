@@ -10,4 +10,10 @@ pub enum GameLayer {
     Player,
     /// Interactable sensors - detect Player only
     Interactable,
+    /// Player tool sensors - active during tool actions (axe swing, etc.)
+    Tool,
+    /// Damageable object sensors - things that can be hit (trees, rocks, etc.)
+    Object,
+    /// Collectable items - can be picked up by Player
+    Collectable,
 }

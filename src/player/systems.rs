@@ -6,8 +6,10 @@ use super::{
     resources::{PlayerActionsAtlas, PlayerAtlas},
 };
 use crate::{
-    core::components::{AnimationFinished, Speed, SpriteAnimation},
+    core::components::{Active, AnimationFinished, Speed, SpriteAnimation},
+    physics::GameLayer,
     player::resources::PlayerDirection,
+    tools::components::ToolMarker,
 };
 use avian2d::prelude::*;
 use bevy::prelude::*;
@@ -195,9 +197,39 @@ pub fn handle_tool_action(
 }
 
 /// Switches to chopping animation when Chopping is added.
-pub fn on_start_chopping(mut player: Query<&mut PlayerAnimation, Added<Chopping>>) {
+pub fn update_animation_on_chopping(mut player: Query<&mut PlayerAnimation, Added<Chopping>>) {
     for mut anim in &mut player {
         *anim = (*anim).to_chopping();
+    }
+}
+
+/// Adds Active marker to tool when Chopping is added.
+/// Also enables collision layers so tool can detect hits.
+pub fn activate_tool_on_chopping(
+    mut commands: Commands,
+    players: Query<Instance<Player>, Added<Chopping>>,
+    mut tools: Query<(Instance<ToolMarker>, &ChildOf, &mut CollisionLayers)>,
+) {
+    for player in &players {
+        for (tool, child_of, mut layers) in &mut tools {
+            if child_of.parent() == player.entity() {
+                commands.entity(tool.entity()).insert(Active);
+                // Enable collisions with objects
+                *layers = CollisionLayers::new(GameLayer::Tool, GameLayer::Object);
+            }
+        }
+    }
+}
+
+/// Positions active tool based on player's animation direction.
+pub fn position_active_tool(
+    players: Query<&PlayerAnimation>,
+    mut tools: Query<(&ChildOf, &mut Transform), Added<Active>>,
+) {
+    for (child_of, mut transform) in &mut tools {
+        if let Ok(anim) = players.get(child_of.parent()) {
+            transform.translation = anim.tool_offset();
+        }
     }
 }
 
@@ -250,7 +282,10 @@ pub fn sync_player_animation(
 /// Removes Chopping marker and returns to idle when animation ends.
 pub fn remove_chopping_on_animation_end(
     mut commands: Commands,
-    mut player: Query<(Instance<Player>, &mut PlayerAnimation), (With<Chopping>, Added<AnimationFinished>)>,
+    mut player: Query<
+        (Instance<Player>, &mut PlayerAnimation),
+        (With<Chopping>, Added<AnimationFinished>),
+    >,
 ) {
     for (player, mut anim) in &mut player {
         *anim = (*anim).to_idle();
@@ -258,10 +293,31 @@ pub fn remove_chopping_on_animation_end(
     }
 }
 
+/// Removes Active from tool when chopping ends.
+/// Also disables collision layers so tool won't detect hits while inactive.
+pub fn deactivate_tool_on_chopping_end(
+    mut commands: Commands,
+    players: Query<Instance<Player>, (With<Chopping>, Added<AnimationFinished>)>,
+    mut tools: Query<(Instance<ToolMarker>, &ChildOf, &mut CollisionLayers), With<Active>>,
+) {
+    for player in &players {
+        for (tool, child_of, mut layers) in &mut tools {
+            if child_of.parent() == player.entity() {
+                commands.entity(tool.entity()).remove::<Active>();
+                // Disable collisions
+                *layers = CollisionLayers::NONE;
+            }
+        }
+    }
+}
+
 /// Removes Tiling marker and returns to idle when animation ends.
 pub fn remove_tiling_on_animation_end(
     mut commands: Commands,
-    mut player: Query<(Instance<Player>, &mut PlayerAnimation), (With<Tiling>, Added<AnimationFinished>)>,
+    mut player: Query<
+        (Instance<Player>, &mut PlayerAnimation),
+        (With<Tiling>, Added<AnimationFinished>),
+    >,
 ) {
     for (player, mut anim) in &mut player {
         *anim = (*anim).to_idle();
@@ -279,7 +335,10 @@ pub fn on_start_watering(mut player: Query<&mut PlayerAnimation, Added<Watering>
 /// Removes Watering marker and returns to idle when animation ends.
 pub fn remove_watering_on_animation_end(
     mut commands: Commands,
-    mut player: Query<(Instance<Player>, &mut PlayerAnimation), (With<Watering>, Added<AnimationFinished>)>,
+    mut player: Query<
+        (Instance<Player>, &mut PlayerAnimation),
+        (With<Watering>, Added<AnimationFinished>),
+    >,
 ) {
     for (player, mut anim) in &mut player {
         *anim = (*anim).to_idle();

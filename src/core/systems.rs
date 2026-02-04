@@ -1,11 +1,15 @@
 use super::components::{AnimationFinished, SequenceAnimation, SpriteAnimation};
 use bevy::prelude::*;
+use moonshine_kind::Instance;
 
 /// Ticks sprite animations and advances frames (sequential).
 pub fn animate_sprites(
     mut commands: Commands,
     time: Res<Time>,
-    mut query: Query<(Entity, &mut SpriteAnimation, &mut Sprite), Without<AnimationFinished>>,
+    mut query: Query<
+        (Instance<Sprite>, &mut SpriteAnimation, &mut Sprite),
+        Without<AnimationFinished>,
+    >,
 ) {
     for (entity, mut anim, mut sprite) in &mut query {
         anim.timer.tick(time.delta());
@@ -18,7 +22,7 @@ pub fn animate_sprites(
                     atlas.index = anim.first;
                 } else {
                     // One-shot finished
-                    commands.entity(entity).insert(AnimationFinished);
+                    commands.entity(entity.entity()).insert(AnimationFinished);
                 }
             } else {
                 atlas.index += 1;
@@ -31,7 +35,10 @@ pub fn animate_sprites(
 pub fn animate_sequences(
     mut commands: Commands,
     time: Res<Time>,
-    mut query: Query<(Entity, &mut SequenceAnimation, &mut Sprite), Without<AnimationFinished>>,
+    mut query: Query<
+        (Instance<Sprite>, &mut SequenceAnimation, &mut Sprite),
+        Without<AnimationFinished>,
+    >,
 ) {
     for (entity, mut anim, mut sprite) in &mut query {
         anim.timer.tick(time.delta());
@@ -50,7 +57,7 @@ pub fn animate_sequences(
                 }
             } else {
                 // One-shot finished
-                commands.entity(entity).insert(AnimationFinished);
+                commands.entity(entity.entity()).insert(AnimationFinished);
             }
         }
     }

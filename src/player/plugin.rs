@@ -2,11 +2,12 @@ use super::{
     components::{Busy, Chopping, EquippedTool, Moving, Player, PlayerAnimation, Tiling, Watering},
     resources::{PlayerActionsAtlas, PlayerAtlas, PlayerDirection},
     systems::{
-        apply_player_movement, detect_player_input, handle_tool_action, load_player_actions_atlas,
-        load_player_atlas, on_start_chopping, on_start_moving, on_start_tiling, on_start_watering,
-        on_stop_moving, remove_chopping_on_animation_end, remove_tiling_on_animation_end,
+        activate_tool_on_chopping, apply_player_movement, deactivate_tool_on_chopping_end,
+        detect_player_input, handle_tool_action, load_player_actions_atlas, load_player_atlas,
+        on_start_moving, on_start_tiling, on_start_watering, on_stop_moving, position_active_tool,
+        remove_chopping_on_animation_end, remove_tiling_on_animation_end,
         remove_watering_on_animation_end, spawn_player_at_spawn_point, sync_player_animation,
-        update_moving_state, update_walking_direction,
+        update_animation_on_chopping, update_moving_state, update_walking_direction,
     },
 };
 use bevy::prelude::*;
@@ -56,15 +57,20 @@ impl Plugin for PlayerPlugin {
                         .chain()
                         .in_set(PlayerSystemSet::Movement),
                     (
-                        on_start_moving,
-                        on_stop_moving,
-                        on_start_chopping,
-                        on_start_tiling,
-                        on_start_watering,
-                        remove_chopping_on_animation_end,
-                        remove_tiling_on_animation_end,
-                        remove_watering_on_animation_end,
-                        update_walking_direction.run_if(resource_changed::<PlayerDirection>),
+                        (
+                            on_start_moving,
+                            on_stop_moving,
+                            update_animation_on_chopping,
+                            activate_tool_on_chopping,
+                            on_start_tiling,
+                            on_start_watering,
+                            remove_chopping_on_animation_end,
+                            deactivate_tool_on_chopping_end,
+                            remove_tiling_on_animation_end,
+                            remove_watering_on_animation_end,
+                            update_walking_direction.run_if(resource_changed::<PlayerDirection>),
+                            position_active_tool.after(update_animation_on_chopping),
+                        ),
                         sync_player_animation,
                     )
                         .chain()

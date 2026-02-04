@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/test_map_house.tmx",
+    "activeFile": "maps/test_map_objects_trees.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -76,12 +76,27 @@
                 10,
                 11
             ],
-            "scale": 2.3301,
+            "scale": 1.6623,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 243.55177889360976,
-                "y": 115.44568902622206
+                "x": 209.0477049870661,
+                "y": 67.97810262888768
             }
+        },
+        "maps/test_map_objects_trees.tmx": {
+            "expandedObjectLayers": [
+                10
+            ],
+            "scale": 2.2379,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 208.45435452879937,
+                "y": 101.88122793690515
+            }
+        },
+        "maps/test_map_objects_trees.tmx#small_tree": {
+            "scaleInDock": 1,
+            "scaleInEditor": 20.3218
         },
         "maps/test_map_player.tmx": {
             "scale": 1.376015625,
@@ -111,7 +126,7 @@
             "scaleInEditor": 3.5441
         },
         "tilesets/doors.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 4.2439,
             "scaleInEditor": 6.552
         },
         "tilesets/game.tsx": {
@@ -127,6 +142,7 @@
             "scaleInEditor": 3.6426
         },
         "tilesets/house_prefabs.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 3.08
         },
         "tilesets/maps:test_map.tmx": {
@@ -156,25 +172,28 @@
     },
     "frame.defaultDuration": 200,
     "last.externalTilesetPath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/tilesets",
-    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/maps/houses",
+    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/tilesets",
     "last.objectTypesPath": "/Users/arthurzapparoli/Development/rust/croptails/tiled_types_export.json",
     "last.worldFilePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/maps/worlds",
     "loadedWorlds": [
         "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/maps/worlds/test_house.world"
     ],
-    "map.height": 22,
+    "map.height": 2,
     "map.lastUsedFormat": "tmx",
     "map.layerDataFormat": "3",
     "map.tileHeight": 16,
     "map.tileWidth": 16,
-    "map.width": 40,
+    "map.width": 2,
     "mapScene.enableWorlds": true,
     "openFiles": [
-        "maps/test_map_house.tmx"
+        "maps/test_map_objects_trees.tmx"
     ],
     "project": "croptails.tiled-project",
-    "property.type": "string",
+    "property.type": "croptails::objects::components::Tree",
     "recentFiles": [
+        "maps/test_map_objects_trees.tmx",
+        "tilesets/basic_grass_biome_things.tsx",
+        "maps/test_map_house.tmx",
         "maps/houses/small_house.tmx",
         "tilesets/small_house.tsx",
         "maps/houses/medium_house.tmx",
@@ -183,16 +202,13 @@
         "maps/houses/large_house.tmx",
         "tilesets/doors.tsx",
         "tilesets/basic_furniture.tsx",
-        "maps/test_map_house.tmx",
-        "tilesets/house.tsx",
-        "maps/test_map_player.tmx",
-        "maps/test_map_default.tmx"
+        "tilesets/house.tsx"
     ],
-    "tileset.embedInMap": false,
+    "tileset.embedInMap": true,
     "tileset.lastUsedFilter": "All Files (*)",
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 80,
-        "width": 112
+        "height": 32,
+        "width": 16
     }
 }

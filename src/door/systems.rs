@@ -194,10 +194,10 @@ pub fn on_interactable_deactivated(
     mut removed: RemovedComponents<InteractableActive>,
 ) {
     for entity in removed.read() {
-        if let Ok(mut state) = doors.get_mut(entity) {
-            if *state == DoorState::Open {
-                *state = DoorState::Closing;
-            }
+        if let Ok(mut state) = doors.get_mut(entity)
+            && *state == DoorState::Open
+        {
+            *state = DoorState::Closing;
         }
     }
 }

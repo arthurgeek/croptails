@@ -152,73 +152,6 @@
         {
             "color": "#ff000000",
             "drawFill": true,
-            "id": 7,
-            "members": [
-                {
-                    "name": "max",
-                    "propertyType": "glam::Vec2",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "min",
-                    "propertyType": "glam::Vec2",
-                    "type": "class",
-                    "value": {
-                    }
-                }
-            ],
-            "name": "avian2d::collision::collider::ColliderAabb",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 8,
-            "members": [
-            ],
-            "name": "avian2d::collision::collider::ColliderDisabled",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 9,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 0
-                }
-            ],
-            "name": "avian2d::collision::collider::CollisionMargin",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 10,
-            "members": [
-            ],
-            "name": "avian2d::collision::collider::Sensor",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
             "id": 11,
             "members": [
             ],
@@ -281,6 +214,61 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 7,
+            "members": [
+                {
+                    "name": "max",
+                    "propertyType": "glam::Vec2",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "min",
+                    "propertyType": "glam::Vec2",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "avian2d::collision::collider::ColliderAabb",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 8,
+            "members": [
+            ],
+            "name": "avian2d::collision::collider::ColliderDisabled",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 9,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "avian2d::collision::collider::CollisionMargin",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 14,
             "members": [
                 {
@@ -316,6 +304,18 @@
                 }
             ],
             "name": "avian2d::collision::collider::layers::LayerMask",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 10,
+            "members": [
+            ],
+            "name": "avian2d::collision::collider::Sensor",
             "type": "class",
             "useAs": [
                 "property"
@@ -624,6 +624,54 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 42,
+            "members": [
+                {
+                    "name": "anchor1",
+                    "propertyType": "avian2d::dynamics::joints::JointAnchor",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "anchor2",
+                    "propertyType": "avian2d::dynamics::joints::JointAnchor",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "body1",
+                    "type": "object",
+                    "value": 0
+                },
+                {
+                    "name": "body2",
+                    "type": "object",
+                    "value": 0
+                },
+                {
+                    "name": "compliance",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "limits",
+                    "propertyType": "avian2d::dynamics::joints::DistanceLimit",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "avian2d::dynamics::joints::distance::DistanceJoint",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 28,
             "members": [
                 {
@@ -638,6 +686,52 @@
                 }
             ],
             "name": "avian2d::dynamics::joints::DistanceLimit",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 43,
+            "members": [
+                {
+                    "name": "angle_compliance",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "body1",
+                    "type": "object",
+                    "value": 0
+                },
+                {
+                    "name": "body2",
+                    "type": "object",
+                    "value": 0
+                },
+                {
+                    "name": "frame1",
+                    "propertyType": "avian2d::dynamics::joints::JointFrame",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "frame2",
+                    "propertyType": "avian2d::dynamics::joints::JointFrame",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "point_compliance",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "avian2d::dynamics::joints::fixed::FixedJoint",
             "type": "class",
             "useAs": [
                 "property"
@@ -904,100 +998,6 @@
         {
             "color": "#ff000000",
             "drawFill": true,
-            "id": 42,
-            "members": [
-                {
-                    "name": "anchor1",
-                    "propertyType": "avian2d::dynamics::joints::JointAnchor",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "anchor2",
-                    "propertyType": "avian2d::dynamics::joints::JointAnchor",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "body1",
-                    "type": "object",
-                    "value": 0
-                },
-                {
-                    "name": "body2",
-                    "type": "object",
-                    "value": 0
-                },
-                {
-                    "name": "compliance",
-                    "type": "float",
-                    "value": 0
-                },
-                {
-                    "name": "limits",
-                    "propertyType": "avian2d::dynamics::joints::DistanceLimit",
-                    "type": "class",
-                    "value": {
-                    }
-                }
-            ],
-            "name": "avian2d::dynamics::joints::distance::DistanceJoint",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 43,
-            "members": [
-                {
-                    "name": "angle_compliance",
-                    "type": "float",
-                    "value": 0
-                },
-                {
-                    "name": "body1",
-                    "type": "object",
-                    "value": 0
-                },
-                {
-                    "name": "body2",
-                    "type": "object",
-                    "value": 0
-                },
-                {
-                    "name": "frame1",
-                    "propertyType": "avian2d::dynamics::joints::JointFrame",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "frame2",
-                    "propertyType": "avian2d::dynamics::joints::JointFrame",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "point_compliance",
-                    "type": "float",
-                    "value": 0
-                }
-            ],
-            "name": "avian2d::dynamics::joints::fixed::FixedJoint",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
             "id": 44,
             "members": [
                 {
@@ -1167,137 +1167,6 @@
         {
             "color": "#ff000000",
             "drawFill": true,
-            "id": 49,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 1
-                }
-            ],
-            "name": "avian2d::dynamics::rigid_body::GravityScale",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 50,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 0
-                }
-            ],
-            "name": "avian2d::dynamics::rigid_body::LinearDamping",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 51,
-            "members": [
-                {
-                    "name": "0",
-                    "propertyType": "glam::Vec2",
-                    "type": "class",
-                    "value": {
-                        "x": 0,
-                        "y": 0
-                    }
-                }
-            ],
-            "name": "avian2d::dynamics::rigid_body::LinearVelocity",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 52,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 0
-                }
-            ],
-            "name": "avian2d::dynamics::rigid_body::MaxAngularSpeed",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 53,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 0
-                }
-            ],
-            "name": "avian2d::dynamics::rigid_body::MaxLinearSpeed",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 54,
-            "members": [
-                {
-                    "name": ":variant",
-                    "propertyType": "avian2d::dynamics::rigid_body::RigidBody:::Variant",
-                    "type": "string",
-                    "value": "Dynamic"
-                }
-            ],
-            "name": "avian2d::dynamics::rigid_body::RigidBody",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "id": 55,
-            "name": "avian2d::dynamics::rigid_body::RigidBody:::Variant",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Dynamic",
-                "Static",
-                "Kinematic"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 56,
-            "members": [
-            ],
-            "name": "avian2d::dynamics::rigid_body::RigidBodyDisabled",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
             "id": 57,
             "members": [
                 {
@@ -1437,6 +1306,61 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 49,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 1
+                }
+            ],
+            "name": "avian2d::dynamics::rigid_body::GravityScale",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 50,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "avian2d::dynamics::rigid_body::LinearDamping",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 51,
+            "members": [
+                {
+                    "name": "0",
+                    "propertyType": "glam::Vec2",
+                    "type": "class",
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    }
+                }
+            ],
+            "name": "avian2d::dynamics::rigid_body::LinearVelocity",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 64,
             "members": [
                 {
@@ -1484,59 +1408,6 @@
                 }
             ],
             "name": "avian2d::dynamics::rigid_body::mass_properties::components::CenterOfMass",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 67,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 0
-                }
-            ],
-            "name": "avian2d::dynamics::rigid_body::mass_properties::components::Mass",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 68,
-            "members": [
-            ],
-            "name": "avian2d::dynamics::rigid_body::mass_properties::components::NoAutoAngularInertia",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 69,
-            "members": [
-            ],
-            "name": "avian2d::dynamics::rigid_body::mass_properties::components::NoAutoCenterOfMass",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 70,
-            "members": [
-            ],
-            "name": "avian2d::dynamics::rigid_body::mass_properties::components::NoAutoMass",
             "type": "class",
             "useAs": [
                 "property"
@@ -1636,6 +1507,93 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 67,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "avian2d::dynamics::rigid_body::mass_properties::components::Mass",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 68,
+            "members": [
+            ],
+            "name": "avian2d::dynamics::rigid_body::mass_properties::components::NoAutoAngularInertia",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 69,
+            "members": [
+            ],
+            "name": "avian2d::dynamics::rigid_body::mass_properties::components::NoAutoCenterOfMass",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 70,
+            "members": [
+            ],
+            "name": "avian2d::dynamics::rigid_body::mass_properties::components::NoAutoMass",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 52,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "avian2d::dynamics::rigid_body::MaxAngularSpeed",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 53,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "avian2d::dynamics::rigid_body::MaxLinearSpeed",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 76,
             "members": [
                 {
@@ -1721,6 +1679,72 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 54,
+            "members": [
+                {
+                    "name": ":variant",
+                    "propertyType": "avian2d::dynamics::rigid_body::RigidBody:::Variant",
+                    "type": "string",
+                    "value": "Dynamic"
+                }
+            ],
+            "name": "avian2d::dynamics::rigid_body::RigidBody",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "id": 55,
+            "name": "avian2d::dynamics::rigid_body::RigidBody:::Variant",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Dynamic",
+                "Static",
+                "Kinematic"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 56,
+            "members": [
+            ],
+            "name": "avian2d::dynamics::rigid_body::RigidBodyDisabled",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 82,
+            "members": [
+            ],
+            "name": "avian2d::dynamics::rigid_body::sleeping::Sleeping",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 83,
+            "members": [
+            ],
+            "name": "avian2d::dynamics::rigid_body::sleeping::SleepingDisabled",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 80,
             "members": [
                 {
@@ -1752,30 +1776,6 @@
                 }
             ],
             "name": "avian2d::dynamics::rigid_body::sleeping::SleepTimer",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 82,
-            "members": [
-            ],
-            "name": "avian2d::dynamics::rigid_body::sleeping::Sleeping",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 83,
-            "members": [
-            ],
-            "name": "avian2d::dynamics::rigid_body::sleeping::SleepingDisabled",
             "type": "class",
             "useAs": [
                 "property"
@@ -4019,69 +4019,6 @@
         {
             "color": "#ff000000",
             "drawFill": true,
-            "id": 188,
-            "members": [
-                {
-                    "name": "tick",
-                    "type": "int",
-                    "value": 0
-                }
-            ],
-            "name": "bevy_ecs::change_detection::tick::Tick",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 189,
-            "members": [
-            ],
-            "name": "bevy_ecs::entity_disabling::Disabled",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 190,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "object",
-                    "value": 0
-                }
-            ],
-            "name": "bevy_ecs::hierarchy::ChildOf",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 191,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "string",
-                    "value": ""
-                }
-            ],
-            "name": "bevy_ecs::name::Name",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
             "id": 192,
             "members": [
                 {
@@ -4935,6 +4872,25 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 225,
+            "members": [
+                {
+                    "name": "0",
+                    "propertyType": "core::option::Option<glam::Vec2>",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "bevy_ecs_tiled::tiled::world::chunking::TiledWorldChunking",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 223,
             "members": [
             ],
@@ -4956,42 +4912,6 @@
                 }
             ],
             "name": "bevy_ecs_tiled::tiled::world::TiledWorld",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 225,
-            "members": [
-                {
-                    "name": "0",
-                    "propertyType": "core::option::Option<glam::Vec2>",
-                    "type": "class",
-                    "value": {
-                    }
-                }
-            ],
-            "name": "bevy_ecs_tiled::tiled::world::chunking::TiledWorldChunking",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 226,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "bool",
-                    "value": false
-                }
-            ],
-            "name": "bevy_ecs_tilemap::FrustumCulling",
             "type": "class",
             "useAs": [
                 "property"
@@ -5056,6 +4976,23 @@
                 }
             ],
             "name": "bevy_ecs_tilemap::anchor::TilemapAnchor::Custom",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 226,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "bool",
+                    "value": false
+                }
+            ],
+            "name": "bevy_ecs_tilemap::FrustumCulling",
             "type": "class",
             "useAs": [
                 "property"
@@ -5454,6 +5391,69 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 188,
+            "members": [
+                {
+                    "name": "tick",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "bevy_ecs::change_detection::tick::Tick",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 189,
+            "members": [
+            ],
+            "name": "bevy_ecs::entity_disabling::Disabled",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 190,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "object",
+                    "value": 0
+                }
+            ],
+            "name": "bevy_ecs::hierarchy::ChildOf",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 191,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "name": "bevy_ecs::name::Name",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 250,
             "members": [
                 {
@@ -5721,6 +5721,120 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 268,
+            "members": [
+            ],
+            "name": "bevy_input_focus::autofocus::AutoFocus",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 269,
+            "members": [
+                {
+                    "name": "max_search_distance",
+                    "propertyType": "core::option::Option<f32>",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "min_alignment_factor",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "prefer_aligned",
+                    "type": "bool",
+                    "value": false
+                }
+            ],
+            "name": "bevy_input_focus::directional_navigation::AutoNavigationConfig",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 266,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "object",
+                    "value": 0
+                }
+            ],
+            "name": "bevy_input_focus::InputFocus",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 267,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "bool",
+                    "value": false
+                }
+            ],
+            "name": "bevy_input_focus::InputFocusVisible",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 270,
+            "members": [
+                {
+                    "name": "modal",
+                    "type": "bool",
+                    "value": false
+                },
+                {
+                    "name": "order",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "bevy_input_focus::tab_navigation::TabGroup",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 271,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "bevy_input_focus::tab_navigation::TabIndex",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 262,
             "members": [
                 {
@@ -5795,186 +5909,6 @@
                 "Pixel"
             ],
             "valuesAsFlags": false
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 266,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "object",
-                    "value": 0
-                }
-            ],
-            "name": "bevy_input_focus::InputFocus",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 267,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "bool",
-                    "value": false
-                }
-            ],
-            "name": "bevy_input_focus::InputFocusVisible",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 268,
-            "members": [
-            ],
-            "name": "bevy_input_focus::autofocus::AutoFocus",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 269,
-            "members": [
-                {
-                    "name": "max_search_distance",
-                    "propertyType": "core::option::Option<f32>",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "min_alignment_factor",
-                    "type": "float",
-                    "value": 0
-                },
-                {
-                    "name": "prefer_aligned",
-                    "type": "bool",
-                    "value": false
-                }
-            ],
-            "name": "bevy_input_focus::directional_navigation::AutoNavigationConfig",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 270,
-            "members": [
-                {
-                    "name": "modal",
-                    "type": "bool",
-                    "value": false
-                },
-                {
-                    "name": "order",
-                    "type": "int",
-                    "value": 0
-                }
-            ],
-            "name": "bevy_input_focus::tab_navigation::TabGroup",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 271,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "int",
-                    "value": 0
-                }
-            ],
-            "name": "bevy_input_focus::tab_navigation::TabIndex",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 272,
-            "members": [
-            ],
-            "name": "bevy_light::NotShadowCaster",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 273,
-            "members": [
-            ],
-            "name": "bevy_light::NotShadowReceiver",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 274,
-            "members": [
-                {
-                    "name": ":variant",
-                    "propertyType": "bevy_light::ShadowFilteringMethod:::Variant",
-                    "type": "string",
-                    "value": "Hardware2x2"
-                }
-            ],
-            "name": "bevy_light::ShadowFilteringMethod",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "id": 275,
-            "name": "bevy_light::ShadowFilteringMethod:::Variant",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Hardware2x2",
-                "Gaussian",
-                "Temporal"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 276,
-            "members": [
-            ],
-            "name": "bevy_light::TransmittedShadowReceiver",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
         },
         {
             "color": "#ff000000",
@@ -6143,6 +6077,51 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 287,
+            "members": [
+                {
+                    "name": "base_color_texture",
+                    "propertyType": "core::option::Option<bevy_asset::handle::Handle<bevy_image::image::Image>>",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "emissive_texture",
+                    "propertyType": "core::option::Option<bevy_asset::handle::Handle<bevy_image::image::Image>>",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "metallic_roughness_texture",
+                    "propertyType": "core::option::Option<bevy_asset::handle::Handle<bevy_image::image::Image>>",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "normal_map_texture",
+                    "propertyType": "core::option::Option<bevy_asset::handle::Handle<bevy_image::image::Image>>",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "tag",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "bevy_light::cluster::ClusteredDecal",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 283,
             "members": [
                 {
@@ -6212,51 +6191,6 @@
                 }
             ],
             "name": "bevy_light::cluster::ClusterZConfig",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 287,
-            "members": [
-                {
-                    "name": "base_color_texture",
-                    "propertyType": "core::option::Option<bevy_asset::handle::Handle<bevy_image::image::Image>>",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "emissive_texture",
-                    "propertyType": "core::option::Option<bevy_asset::handle::Handle<bevy_image::image::Image>>",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "metallic_roughness_texture",
-                    "propertyType": "core::option::Option<bevy_asset::handle::Handle<bevy_image::image::Image>>",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "normal_map_texture",
-                    "propertyType": "core::option::Option<bevy_asset::handle::Handle<bevy_image::image::Image>>",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "tag",
-                    "type": "int",
-                    "value": 0
-                }
-            ],
-            "name": "bevy_light::cluster::ClusteredDecal",
             "type": "class",
             "useAs": [
                 "property"
@@ -6338,6 +6272,30 @@
                 }
             ],
             "name": "bevy_light::directional_light::DirectionalLightTexture",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 272,
+            "members": [
+            ],
+            "name": "bevy_light::NotShadowCaster",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 273,
+            "members": [
+            ],
+            "name": "bevy_light::NotShadowReceiver",
             "type": "class",
             "useAs": [
                 "property"
@@ -6564,6 +6522,36 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 274,
+            "members": [
+                {
+                    "name": ":variant",
+                    "propertyType": "bevy_light::ShadowFilteringMethod:::Variant",
+                    "type": "string",
+                    "value": "Hardware2x2"
+                }
+            ],
+            "name": "bevy_light::ShadowFilteringMethod",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "id": 275,
+            "name": "bevy_light::ShadowFilteringMethod:::Variant",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Hardware2x2",
+                "Gaussian",
+                "Temporal"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 298,
             "members": [
                 {
@@ -6640,6 +6628,18 @@
                 }
             ],
             "name": "bevy_light::spot_light::SpotLightTexture",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 276,
+            "members": [
+            ],
+            "name": "bevy_light::TransmittedShadowReceiver",
             "type": "class",
             "useAs": [
                 "property"
@@ -7428,60 +7428,6 @@
         {
             "color": "#ff000000",
             "drawFill": true,
-            "id": 335,
-            "members": [
-                {
-                    "name": "is_hoverable",
-                    "type": "bool",
-                    "value": true
-                },
-                {
-                    "name": "should_block_lower",
-                    "type": "bool",
-                    "value": true
-                }
-            ],
-            "name": "bevy_picking::Pickable",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 336,
-            "members": [
-                {
-                    "name": "is_enabled",
-                    "type": "bool",
-                    "value": true
-                },
-                {
-                    "name": "is_hover_enabled",
-                    "type": "bool",
-                    "value": true
-                },
-                {
-                    "name": "is_input_enabled",
-                    "type": "bool",
-                    "value": true
-                },
-                {
-                    "name": "is_window_picking_enabled",
-                    "type": "bool",
-                    "value": true
-                }
-            ],
-            "name": "bevy_picking::PickingSettings",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
             "id": 337,
             "members": [
                 {
@@ -7655,6 +7601,60 @@
                 }
             ],
             "name": "bevy_picking::mesh_picking::ray_cast::SimplifiedMesh",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 335,
+            "members": [
+                {
+                    "name": "is_hoverable",
+                    "type": "bool",
+                    "value": true
+                },
+                {
+                    "name": "should_block_lower",
+                    "type": "bool",
+                    "value": true
+                }
+            ],
+            "name": "bevy_picking::Pickable",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 336,
+            "members": [
+                {
+                    "name": "is_enabled",
+                    "type": "bool",
+                    "value": true
+                },
+                {
+                    "name": "is_hover_enabled",
+                    "type": "bool",
+                    "value": true
+                },
+                {
+                    "name": "is_input_enabled",
+                    "type": "bool",
+                    "value": true
+                },
+                {
+                    "name": "is_window_picking_enabled",
+                    "type": "bool",
+                    "value": true
+                }
+            ],
+            "name": "bevy_picking::PickingSettings",
             "type": "class",
             "useAs": [
                 "property"
@@ -8219,6 +8219,216 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 396,
+            "members": [
+                {
+                    "name": ":variant",
+                    "propertyType": "bevy_sprite_render::mesh2d::material::AlphaMode2d:::Variant",
+                    "type": "string",
+                    "value": "Opaque"
+                },
+                {
+                    "name": "Mask",
+                    "propertyType": "bevy_sprite_render::mesh2d::material::AlphaMode2d::Mask",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "bevy_sprite_render::mesh2d::material::AlphaMode2d",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "id": 397,
+            "name": "bevy_sprite_render::mesh2d::material::AlphaMode2d:::Variant",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Opaque",
+                "Mask",
+                "Blend"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 398,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "bevy_sprite_render::mesh2d::material::AlphaMode2d::Mask",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 399,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "file",
+                    "value": ""
+                }
+            ],
+            "name": "bevy_sprite_render::mesh2d::material::MeshMaterial2d<bevy_sprite_render::mesh2d::color_material::ColorMaterial>",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 400,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "file",
+                    "value": ""
+                }
+            ],
+            "name": "bevy_sprite_render::mesh2d::material::MeshMaterial2d<bevy_sprite_render::tilemap_chunk::tilemap_chunk_material::TilemapChunkMaterial>",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 401,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "file",
+                    "value": ""
+                }
+            ],
+            "name": "bevy_sprite_render::mesh2d::wireframe2d::Mesh2dWireframe",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 402,
+            "members": [
+            ],
+            "name": "bevy_sprite_render::mesh2d::wireframe2d::NoWireframe2d",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 403,
+            "members": [
+            ],
+            "name": "bevy_sprite_render::mesh2d::wireframe2d::Wireframe2d",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 404,
+            "members": [
+                {
+                    "name": "color",
+                    "type": "color",
+                    "value": "#ffffffff"
+                }
+            ],
+            "name": "bevy_sprite_render::mesh2d::wireframe2d::Wireframe2dColor",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 405,
+            "members": [
+                {
+                    "name": "default_color",
+                    "type": "color",
+                    "value": "#ffffffff"
+                },
+                {
+                    "name": "global",
+                    "type": "bool",
+                    "value": false
+                }
+            ],
+            "name": "bevy_sprite_render::mesh2d::wireframe2d::Wireframe2dConfig",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 406,
+            "members": [
+                {
+                    "name": "alpha_mode",
+                    "propertyType": "bevy_sprite_render::mesh2d::material::AlphaMode2d",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "chunk_size",
+                    "propertyType": "glam::UVec2",
+                    "type": "class",
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    }
+                },
+                {
+                    "name": "tile_display_size",
+                    "propertyType": "glam::UVec2",
+                    "type": "class",
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    }
+                },
+                {
+                    "name": "tileset",
+                    "type": "file",
+                    "value": ""
+                }
+            ],
+            "name": "bevy_sprite_render::tilemap_chunk::TilemapChunk",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 375,
             "members": [
             ],
@@ -8703,216 +8913,6 @@
         {
             "color": "#ff000000",
             "drawFill": true,
-            "id": 396,
-            "members": [
-                {
-                    "name": ":variant",
-                    "propertyType": "bevy_sprite_render::mesh2d::material::AlphaMode2d:::Variant",
-                    "type": "string",
-                    "value": "Opaque"
-                },
-                {
-                    "name": "Mask",
-                    "propertyType": "bevy_sprite_render::mesh2d::material::AlphaMode2d::Mask",
-                    "type": "class",
-                    "value": {
-                    }
-                }
-            ],
-            "name": "bevy_sprite_render::mesh2d::material::AlphaMode2d",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "id": 397,
-            "name": "bevy_sprite_render::mesh2d::material::AlphaMode2d:::Variant",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "Opaque",
-                "Mask",
-                "Blend"
-            ],
-            "valuesAsFlags": false
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 398,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 0
-                }
-            ],
-            "name": "bevy_sprite_render::mesh2d::material::AlphaMode2d::Mask",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 399,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "file",
-                    "value": ""
-                }
-            ],
-            "name": "bevy_sprite_render::mesh2d::material::MeshMaterial2d<bevy_sprite_render::mesh2d::color_material::ColorMaterial>",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 400,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "file",
-                    "value": ""
-                }
-            ],
-            "name": "bevy_sprite_render::mesh2d::material::MeshMaterial2d<bevy_sprite_render::tilemap_chunk::tilemap_chunk_material::TilemapChunkMaterial>",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 401,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "file",
-                    "value": ""
-                }
-            ],
-            "name": "bevy_sprite_render::mesh2d::wireframe2d::Mesh2dWireframe",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 402,
-            "members": [
-            ],
-            "name": "bevy_sprite_render::mesh2d::wireframe2d::NoWireframe2d",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 403,
-            "members": [
-            ],
-            "name": "bevy_sprite_render::mesh2d::wireframe2d::Wireframe2d",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 404,
-            "members": [
-                {
-                    "name": "color",
-                    "type": "color",
-                    "value": "#ffffffff"
-                }
-            ],
-            "name": "bevy_sprite_render::mesh2d::wireframe2d::Wireframe2dColor",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 405,
-            "members": [
-                {
-                    "name": "default_color",
-                    "type": "color",
-                    "value": "#ffffffff"
-                },
-                {
-                    "name": "global",
-                    "type": "bool",
-                    "value": false
-                }
-            ],
-            "name": "bevy_sprite_render::mesh2d::wireframe2d::Wireframe2dConfig",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 406,
-            "members": [
-                {
-                    "name": "alpha_mode",
-                    "propertyType": "bevy_sprite_render::mesh2d::material::AlphaMode2d",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "chunk_size",
-                    "propertyType": "glam::UVec2",
-                    "type": "class",
-                    "value": {
-                        "x": 0,
-                        "y": 0
-                    }
-                },
-                {
-                    "name": "tile_display_size",
-                    "propertyType": "glam::UVec2",
-                    "type": "class",
-                    "value": {
-                        "x": 0,
-                        "y": 0
-                    }
-                },
-                {
-                    "name": "tileset",
-                    "type": "file",
-                    "value": ""
-                }
-            ],
-            "name": "bevy_sprite_render::tilemap_chunk::TilemapChunk",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
             "id": 407,
             "members": [
                 {
@@ -9247,240 +9247,6 @@
         {
             "color": "#ff000000",
             "drawFill": true,
-            "id": 426,
-            "members": [
-                {
-                    "name": "0",
-                    "propertyType": "glam::Affine3A",
-                    "type": "class",
-                    "value": {
-                        "matrix3": {
-                            "x_axis": null,
-                            "y_axis": null,
-                            "z_axis": null
-                        },
-                        "translation": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    }
-                }
-            ],
-            "name": "bevy_transform::components::global_transform::GlobalTransform",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 427,
-            "members": [
-                {
-                    "name": "rotation",
-                    "propertyType": "glam::Quat",
-                    "type": "class",
-                    "value": {
-                        "w": 1,
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                },
-                {
-                    "name": "scale",
-                    "propertyType": "glam::Vec3",
-                    "type": "class",
-                    "value": {
-                        "x": 1,
-                        "y": 1,
-                        "z": 1
-                    }
-                },
-                {
-                    "name": "translation",
-                    "propertyType": "glam::Vec3",
-                    "type": "class",
-                    "value": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
-                }
-            ],
-            "name": "bevy_transform::components::transform::Transform",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 428,
-            "members": [
-            ],
-            "name": "bevy_transform::components::transform::TransformTreeChanged",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 429,
-            "members": [
-            ],
-            "name": "bevy_transform_interpolation::NoRotationEasing",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 430,
-            "members": [
-            ],
-            "name": "bevy_transform_interpolation::NoScaleEasing",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 431,
-            "members": [
-            ],
-            "name": "bevy_transform_interpolation::NoTransformEasing",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 432,
-            "members": [
-            ],
-            "name": "bevy_transform_interpolation::NoTranslationEasing",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 433,
-            "members": [
-            ],
-            "name": "bevy_transform_interpolation::NonlinearRotationEasing",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 434,
-            "members": [
-            ],
-            "name": "bevy_transform_interpolation::NonlinearTranslationEasing",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 435,
-            "members": [
-                {
-                    "name": "end",
-                    "propertyType": "core::option::Option<glam::Quat>",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "start",
-                    "propertyType": "core::option::Option<glam::Quat>",
-                    "type": "class",
-                    "value": {
-                    }
-                }
-            ],
-            "name": "bevy_transform_interpolation::RotationEasingState",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 436,
-            "members": [
-                {
-                    "name": "end",
-                    "propertyType": "core::option::Option<glam::Vec3>",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "start",
-                    "propertyType": "core::option::Option<glam::Vec3>",
-                    "type": "class",
-                    "value": {
-                    }
-                }
-            ],
-            "name": "bevy_transform_interpolation::ScaleEasingState",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 437,
-            "members": [
-                {
-                    "name": "end",
-                    "propertyType": "core::option::Option<glam::Vec3>",
-                    "type": "class",
-                    "value": {
-                    }
-                },
-                {
-                    "name": "start",
-                    "propertyType": "core::option::Option<glam::Vec3>",
-                    "type": "class",
-                    "value": {
-                    }
-                }
-            ],
-            "name": "bevy_transform_interpolation::TranslationEasingState",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
             "id": 438,
             "members": [
             ],
@@ -9601,19 +9367,282 @@
         {
             "color": "#ff000000",
             "drawFill": true,
-            "id": 448,
+            "id": 433,
             "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 1
-                }
             ],
-            "name": "bevy_ui::UiScale",
+            "name": "bevy_transform_interpolation::NonlinearRotationEasing",
             "type": "class",
             "useAs": [
                 "property"
             ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 434,
+            "members": [
+            ],
+            "name": "bevy_transform_interpolation::NonlinearTranslationEasing",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 429,
+            "members": [
+            ],
+            "name": "bevy_transform_interpolation::NoRotationEasing",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 430,
+            "members": [
+            ],
+            "name": "bevy_transform_interpolation::NoScaleEasing",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 431,
+            "members": [
+            ],
+            "name": "bevy_transform_interpolation::NoTransformEasing",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 432,
+            "members": [
+            ],
+            "name": "bevy_transform_interpolation::NoTranslationEasing",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 435,
+            "members": [
+                {
+                    "name": "end",
+                    "propertyType": "core::option::Option<glam::Quat>",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "start",
+                    "propertyType": "core::option::Option<glam::Quat>",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "bevy_transform_interpolation::RotationEasingState",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 436,
+            "members": [
+                {
+                    "name": "end",
+                    "propertyType": "core::option::Option<glam::Vec3>",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "start",
+                    "propertyType": "core::option::Option<glam::Vec3>",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "bevy_transform_interpolation::ScaleEasingState",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 437,
+            "members": [
+                {
+                    "name": "end",
+                    "propertyType": "core::option::Option<glam::Vec3>",
+                    "type": "class",
+                    "value": {
+                    }
+                },
+                {
+                    "name": "start",
+                    "propertyType": "core::option::Option<glam::Vec3>",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "bevy_transform_interpolation::TranslationEasingState",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 426,
+            "members": [
+                {
+                    "name": "0",
+                    "propertyType": "glam::Affine3A",
+                    "type": "class",
+                    "value": {
+                        "matrix3": {
+                            "x_axis": null,
+                            "y_axis": null,
+                            "z_axis": null
+                        },
+                        "translation": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }
+                }
+            ],
+            "name": "bevy_transform::components::global_transform::GlobalTransform",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 427,
+            "members": [
+                {
+                    "name": "rotation",
+                    "propertyType": "glam::Quat",
+                    "type": "class",
+                    "value": {
+                        "w": 1,
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                },
+                {
+                    "name": "scale",
+                    "propertyType": "glam::Vec3",
+                    "type": "class",
+                    "value": {
+                        "x": 1,
+                        "y": 1,
+                        "z": 1
+                    }
+                },
+                {
+                    "name": "translation",
+                    "propertyType": "glam::Vec3",
+                    "type": "class",
+                    "value": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }
+            ],
+            "name": "bevy_transform::components::transform::Transform",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 428,
+            "members": [
+            ],
+            "name": "bevy_transform::components::transform::TransformTreeChanged",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 495,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "int",
+                    "value": 4
+                }
+            ],
+            "name": "bevy_ui_render::BoxShadowSamples",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 496,
+            "members": [
+                {
+                    "name": ":variant",
+                    "propertyType": "bevy_ui_render::UiAntiAlias:::Variant",
+                    "type": "string",
+                    "value": "On"
+                }
+            ],
+            "name": "bevy_ui_render::UiAntiAlias",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "id": 497,
+            "name": "bevy_ui_render::UiAntiAlias:::Variant",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "On",
+                "Off"
+            ],
+            "valuesAsFlags": false
         },
         {
             "color": "#ff000000",
@@ -9828,6 +9857,23 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 461,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "bevy_ui::geometry::Val::Vh",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 459,
             "members": [
                 {
@@ -9854,23 +9900,6 @@
                 }
             ],
             "name": "bevy_ui::geometry::Val::VMin",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 461,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "float",
-                    "value": 0
-                }
-            ],
-            "name": "bevy_ui::geometry::Val::Vh",
             "type": "class",
             "useAs": [
                 "property"
@@ -10441,6 +10470,23 @@
         {
             "color": "#ff000000",
             "drawFill": true,
+            "id": 448,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 1
+                }
+            ],
+            "name": "bevy_ui::UiScale",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
             "id": 483,
             "members": [
             ],
@@ -10708,52 +10754,6 @@
             "useAs": [
                 "property"
             ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 495,
-            "members": [
-                {
-                    "name": "0",
-                    "type": "int",
-                    "value": 4
-                }
-            ],
-            "name": "bevy_ui_render::BoxShadowSamples",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "color": "#ff000000",
-            "drawFill": true,
-            "id": 496,
-            "members": [
-                {
-                    "name": ":variant",
-                    "propertyType": "bevy_ui_render::UiAntiAlias:::Variant",
-                    "type": "string",
-                    "value": "On"
-                }
-            ],
-            "name": "bevy_ui_render::UiAntiAlias",
-            "type": "class",
-            "useAs": [
-                "property"
-            ]
-        },
-        {
-            "id": 497,
-            "name": "bevy_ui_render::UiAntiAlias:::Variant",
-            "storageType": "string",
-            "type": "enum",
-            "values": [
-                "On",
-                "Off"
-            ],
-            "valuesAsFlags": false
         },
         {
             "color": "#ff000000",
@@ -13781,6 +13781,54 @@
                 }
             ],
             "name": "glam::Vec4",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 650,
+            "members": [
+            ],
+            "name": "croptails::interactable::components::Interactable",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 651,
+            "members": [
+            ],
+            "name": "croptails::interactable::components::InteractableActive",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 652,
+            "members": [
+            ],
+            "name": "croptails::interactable::components::InteractableSensor",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 653,
+            "members": [
+            ],
+            "name": "croptails::objects::components::Tree",
             "type": "class",
             "useAs": [
                 "property"

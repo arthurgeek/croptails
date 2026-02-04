@@ -46,7 +46,10 @@ impl Player {
         world.commands().entity(entity).with_child((
             Collider::capsule(3.0, 3.0),
             Transform::from_translation(Vec3::new(0.0, Self::COLLIDER_OFFSET_Y, 0.0)),
-            CollisionLayers::new(GameLayer::Player, [GameLayer::Default, GameLayer::Interactable]),
+            CollisionLayers::new(
+                GameLayer::Player,
+                [GameLayer::Default, GameLayer::Interactable, GameLayer::Collectable],
+            ),
         ));
     }
 }
@@ -260,6 +263,17 @@ impl PlayerAnimation {
             Self::IdleLeft | Self::WalkingLeft => Self::WateringLeft,
             Self::IdleRight | Self::WalkingRight => Self::WateringRight,
             other => other,
+        }
+    }
+
+    /// Returns tool offset based on animation direction.
+    pub fn tool_offset(&self) -> Vec3 {
+        match self {
+            Self::ChoppingLeft => Vec3::new(-9.0, -8.0, 0.0),
+            Self::ChoppingRight => Vec3::new(9.0, -8.0, 0.0),
+            Self::ChoppingFront => Vec3::new(0.0, -11.0, 0.0),
+            Self::ChoppingBack => Vec3::new(0.0, 10.0, 0.0),
+            _ => Vec3::ZERO,
         }
     }
 }

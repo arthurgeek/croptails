@@ -1,6 +1,6 @@
 pub mod components;
-pub mod messages;
 mod plugin;
+mod resources;
 mod systems;
 
-pub use plugin::CorePlugin;
+pub use plugin::ObjectsPlugin;

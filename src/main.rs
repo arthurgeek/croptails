@@ -6,17 +6,21 @@ mod core;
 mod debug;
 mod door;
 mod interactable;
+mod objects;
 mod physics;
 mod player;
 mod tiled;
+mod tools;
 
 use camera::CameraPlugin;
 use core::CorePlugin;
 use door::DoorPlugin;
 use interactable::InteractablePlugin;
+use objects::ObjectsPlugin;
 use physics::PhysicsPlugin;
 use player::PlayerPlugin;
 use tiled::TiledPlugin;
+use tools::ToolsPlugin;
 
 fn main() -> AppExit {
     let mut app = App::new();
@@ -40,6 +44,8 @@ fn main() -> AppExit {
         PlayerPlugin,
         DoorPlugin,
         InteractablePlugin,
+        ObjectsPlugin,
+        ToolsPlugin,
     ));
 
     #[cfg(feature = "debug")]

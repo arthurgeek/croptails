@@ -9,6 +9,7 @@ mod interactable;
 mod objects;
 mod physics;
 mod player;
+mod shaders;
 mod tiled;
 mod tools;
 
@@ -19,6 +20,7 @@ use interactable::InteractablePlugin;
 use objects::ObjectsPlugin;
 use physics::PhysicsPlugin;
 use player::PlayerPlugin;
+use shaders::ShadersPlugin;
 use tiled::TiledPlugin;
 use tools::ToolsPlugin;
 
@@ -46,6 +48,7 @@ fn main() -> AppExit {
         InteractablePlugin,
         ObjectsPlugin,
         ToolsPlugin,
+        ShadersPlugin,
     ));
 
     #[cfg(feature = "debug")]

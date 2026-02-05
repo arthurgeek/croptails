@@ -48,7 +48,11 @@ impl Player {
             Transform::from_translation(Vec3::new(0.0, Self::COLLIDER_OFFSET_Y, 0.0)),
             CollisionLayers::new(
                 GameLayer::Player,
-                [GameLayer::Default, GameLayer::Interactable, GameLayer::Collectable],
+                [
+                    GameLayer::Default,
+                    GameLayer::Interactable,
+                    GameLayer::Collectable,
+                ],
             ),
         ));
     }

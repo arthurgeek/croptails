@@ -203,32 +203,42 @@ pub fn update_animation_on_chopping(mut player: Query<&mut PlayerAnimation, Adde
     }
 }
 
-/// Adds Active marker to tool when Chopping is added.
-/// Also enables collision layers so tool can detect hits.
-pub fn activate_tool_on_chopping(
-    mut commands: Commands,
-    players: Query<Instance<Player>, Added<Chopping>>,
-    mut tools: Query<(Instance<ToolMarker>, &ChildOf, &mut CollisionLayers)>,
+/// Positions tool when Chopping starts (but doesn't activate yet).
+pub fn position_tool_on_chopping(
+    players: Query<&PlayerAnimation, Added<Chopping>>,
+    mut tools: Query<(&ChildOf, &mut Transform), With<ToolMarker>>,
 ) {
-    for player in &players {
-        for (tool, child_of, mut layers) in &mut tools {
-            if child_of.parent() == player.entity() {
-                commands.entity(tool.entity()).insert(Active);
-                // Enable collisions with objects
-                *layers = CollisionLayers::new(GameLayer::Tool, GameLayer::Object);
+    for anim in &players {
+        for (child_of, mut transform) in &mut tools {
+            if players.get(child_of.parent()).is_ok() {
+                transform.translation = anim.tool_offset();
             }
         }
     }
 }
 
-/// Positions active tool based on player's animation direction.
-pub fn position_active_tool(
-    players: Query<&PlayerAnimation>,
-    mut tools: Query<(&ChildOf, &mut Transform), Added<Active>>,
+/// Activates tool when animation reaches impact frame (second frame of chopping).
+pub fn activate_tool_on_impact_frame(
+    mut commands: Commands,
+    players: Query<(Instance<Player>, &PlayerAnimation, &Sprite), With<Chopping>>,
+    mut tools: Query<(Instance<ToolMarker>, &ChildOf, &mut CollisionLayers), Without<Active>>,
 ) {
-    for (child_of, mut transform) in &mut tools {
-        if let Ok(anim) = players.get(child_of.parent()) {
-            transform.translation = anim.tool_offset();
+    for (player, anim, sprite) in &players {
+        let Some(atlas) = &sprite.texture_atlas else {
+            continue;
+        };
+
+        // Check if we're on the impact frame (last frame of the 2-frame animation)
+        let (_, last) = anim.frames();
+        if atlas.index != last {
+            continue;
+        }
+
+        for (tool, child_of, mut layers) in &mut tools {
+            if child_of.parent() == player.entity() {
+                commands.entity(tool.entity()).insert(Active);
+                *layers = CollisionLayers::new(GameLayer::Tool, GameLayer::Object);
+            }
         }
     }
 }

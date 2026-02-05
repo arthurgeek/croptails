@@ -1,8 +1,7 @@
-use super::components::{Collectable, Log, PendingDespawn, Tree};
+use super::components::{Collectable, Log, Tree};
 use super::resources::ObjectsAtlas;
-use crate::core::components::{AnimationFinished, Damage, Health};
+use crate::core::components::{Damage, Health};
 use crate::core::messages::Hit;
-use crate::player::components::Chopping;
 use crate::player::Player;
 use crate::tools::components::Axe;
 use avian2d::prelude::*;
@@ -34,11 +33,12 @@ pub fn configure_tree_health(mut trees: Query<(&Tree, &mut Health), Added<Tree>>
     }
 }
 
-/// Applies damage to objects when hit by an axe.
+/// Applies damage to trees when hit by an axe.
+/// Despawns immediately and spawns logs when health reaches 0.
 pub fn apply_axe_damage(
     mut commands: Commands,
     mut hits: MessageReader<Hit<Axe>>,
-    mut targets: Query<&mut Health>,
+    mut targets: Query<(&mut Health, &Tree, &GlobalTransform)>,
     tools: Query<&Damage>,
 ) {
     for hit in hits.read() {
@@ -46,37 +46,20 @@ pub fn apply_axe_damage(
             continue;
         };
 
-        let Ok(mut health) = targets.get_mut(hit.target.entity()) else {
+        let Ok((mut health, tree, transform)) = targets.get_mut(hit.target.entity()) else {
             continue;
         };
 
         health.current -= damage.0;
+        info!("Tree hit! Health: {}/{}", health.current, health.max);
 
         if health.current <= 0.0 {
-            commands.entity(hit.target.entity()).insert(PendingDespawn);
+            let pos = transform.translation();
+            for offset in tree.variant.log_offsets() {
+                commands.spawn((Log, Transform::from_translation(pos + *offset)));
+            }
+            commands.entity(hit.target.entity()).despawn();
         }
-    }
-}
-
-/// Despawns objects marked PendingDespawn when chopping animation finishes.
-/// Spawns drops (e.g., Log from Tree) at the object's position.
-pub fn despawn_pending(
-    mut commands: Commands,
-    players: Query<(), (With<Chopping>, Added<AnimationFinished>)>,
-    pending_trees: Query<(Instance<Tree>, &Tree, &GlobalTransform), With<PendingDespawn>>,
-) {
-    if players.is_empty() {
-        return;
-    }
-
-    for (instance, tree, transform) in &pending_trees {
-        let pos = transform.translation();
-
-        for offset in tree.variant.log_offsets() {
-            commands.spawn((Log, Transform::from_translation(pos + *offset)));
-        }
-
-        commands.entity(instance.entity()).despawn();
     }
 }
 

@@ -1,4 +1,4 @@
-use super::resources::{tiles, ObjectsAtlas};
+use super::resources::{ObjectsAtlas, tiles};
 use crate::{
     core::components::Health,
     physics::GameLayer,
@@ -14,12 +14,6 @@ use bevy::{
 #[derive(Component, Reflect, Default)]
 #[reflect(Component)]
 pub struct Object;
-
-/// Marker for objects pending despawn (health <= 0).
-/// Despawned when the hitting animation finishes.
-#[derive(Component, Reflect, Default)]
-#[reflect(Component)]
-pub struct PendingDespawn;
 
 /// Tree size variants with different properties.
 #[derive(Reflect, Default, Clone, Copy, PartialEq, Eq)]
@@ -53,10 +47,7 @@ impl TreeVariant {
 
     pub fn log_offsets(&self) -> &'static [Vec3] {
         const SMALL: &[Vec3] = &[Vec3::new(8.0, 8.0, 0.0)];
-        const LARGE: &[Vec3] = &[
-            Vec3::new(4.0, 20.0, 0.0),
-            Vec3::new(28.0, 20.0, 0.0),
-        ];
+        const LARGE: &[Vec3] = &[Vec3::new(4.0, 20.0, 0.0), Vec3::new(28.0, 20.0, 0.0)];
         match self {
             Self::Small => SMALL,
             Self::Large => LARGE,
@@ -76,7 +67,10 @@ pub struct Tree {
 impl Tree {
     fn on_add(mut world: DeferredWorld, ctx: HookContext) {
         let entity = ctx.entity;
-        let variant = world.get::<Tree>(entity).map(|t| t.variant).unwrap_or_default();
+        let variant = world
+            .get::<Tree>(entity)
+            .map(|t| t.variant)
+            .unwrap_or_default();
 
         let size = variant.collider_size();
         let offset = variant.collider_offset();

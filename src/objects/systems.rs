@@ -25,6 +25,15 @@ pub fn load_objects_atlas(
     commands.insert_resource(ObjectsAtlas { texture, layout });
 }
 
+/// Sets tree health based on variant when spawned.
+pub fn configure_tree_health(mut trees: Query<(&Tree, &mut Health), Added<Tree>>) {
+    for (tree, mut health) in &mut trees {
+        let max = tree.variant.health();
+        health.max = max;
+        health.current = max;
+    }
+}
+
 /// Applies damage to objects when hit by an axe.
 pub fn apply_axe_damage(
     mut commands: Commands,
@@ -54,18 +63,20 @@ pub fn apply_axe_damage(
 pub fn despawn_pending(
     mut commands: Commands,
     players: Query<(), (With<Chopping>, Added<AnimationFinished>)>,
-    pending_trees: Query<(Instance<Tree>, &GlobalTransform), With<PendingDespawn>>,
+    pending_trees: Query<(Instance<Tree>, &Tree, &GlobalTransform), With<PendingDespawn>>,
 ) {
     if players.is_empty() {
         return;
     }
 
-    for (tree, transform) in &pending_trees {
+    for (instance, tree, transform) in &pending_trees {
         let pos = transform.translation();
-        // Offset northeast to align with tree trunk
-        commands.spawn((Log, Transform::from_xyz(pos.x + 8.0, pos.y + 8.0, pos.z)));
 
-        commands.entity(tree.entity()).despawn();
+        for offset in tree.variant.log_offsets() {
+            commands.spawn((Log, Transform::from_translation(pos + *offset)));
+        }
+
+        commands.entity(instance.entity()).despawn();
     }
 }
 

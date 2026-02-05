@@ -12937,7 +12937,43 @@
     ],
     "color": "#000000",
     "drawFill": true,
-    "members": []
+    "members": [
+      {
+        "name": "variant",
+        "propertyType": "croptails::objects::components::TreeVariant",
+        "type": "string",
+        "value": "Small"
+      }
+    ]
+  },
+  {
+    "id": 948,
+    "name": "croptails::objects::components::TreeVariant",
+    "type": "class",
+    "useAs": [
+      "property"
+    ],
+    "color": "#000000",
+    "drawFill": true,
+    "members": [
+      {
+        "name": ":variant",
+        "propertyType": "croptails::objects::components::TreeVariant:::Variant",
+        "type": "class",
+        "value": "Small"
+      }
+    ]
+  },
+  {
+    "id": 947,
+    "name": "croptails::objects::components::TreeVariant:::Variant",
+    "type": "enum",
+    "storageType": "string",
+    "values": [
+      "Small",
+      "Large"
+    ],
+    "valuesAsFlags": false
   },
   {
     "id": 460,

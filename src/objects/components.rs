@@ -21,23 +21,70 @@ pub struct Object;
 #[reflect(Component)]
 pub struct PendingDespawn;
 
+/// Tree size variants with different properties.
+#[derive(Reflect, Default, Clone, Copy, PartialEq, Eq)]
+pub enum TreeVariant {
+    #[default]
+    Small,
+    Large,
+}
+
+impl TreeVariant {
+    pub fn collider_size(&self) -> Vec2 {
+        match self {
+            Self::Small => Vec2::new(10.0, 18.0),
+            Self::Large => Vec2::new(12.0, 20.0),
+        }
+    }
+
+    pub fn collider_offset(&self) -> Vec3 {
+        match self {
+            Self::Small => Vec3::new(8.0, 15.0, 0.0),
+            Self::Large => Vec3::new(16.0, 12.0, 0.0),
+        }
+    }
+
+    pub fn health(&self) -> f32 {
+        match self {
+            Self::Small => 3.0,
+            Self::Large => 5.0,
+        }
+    }
+
+    pub fn log_offsets(&self) -> &'static [Vec3] {
+        const SMALL: &[Vec3] = &[Vec3::new(8.0, 8.0, 0.0)];
+        const LARGE: &[Vec3] = &[
+            Vec3::new(4.0, 20.0, 0.0),
+            Vec3::new(28.0, 20.0, 0.0),
+        ];
+        match self {
+            Self::Small => SMALL,
+            Self::Large => LARGE,
+        }
+    }
+}
+
 /// A tree that can be chopped down.
 #[derive(Component, Reflect, Default)]
 #[reflect(Component, Default)]
 #[require(Name = "Tree", Health, Object)]
 #[component(on_add = Self::on_add)]
-pub struct Tree;
+pub struct Tree {
+    pub variant: TreeVariant,
+}
 
 impl Tree {
     fn on_add(mut world: DeferredWorld, ctx: HookContext) {
         let entity = ctx.entity;
+        let variant = world.get::<Tree>(entity).map(|t| t.variant).unwrap_or_default();
 
-        // Spawn ToolTarget<Axe> child with tree-specific collider
-        // Transform offsets collider to align with tree trunk
+        let size = variant.collider_size();
+        let offset = variant.collider_offset();
+
         world.commands().entity(entity).with_child((
             ToolTarget::<Axe>::new(),
-            Collider::rectangle(10.0, 18.0),
-            Transform::from_xyz(8.0, 15.0, 0.0),
+            Collider::rectangle(size.x, size.y),
+            Transform::from_translation(offset),
         ));
     }
 }

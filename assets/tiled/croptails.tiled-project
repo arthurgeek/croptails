@@ -13827,8 +13827,213 @@
             "drawFill": true,
             "id": 653,
             "members": [
+                {
+                    "name": "variant",
+                    "propertyType": "croptails::objects::components::TreeVariant",
+                    "type": "class",
+                    "value": {
+                    }
+                }
             ],
             "name": "croptails::objects::components::Tree",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 654,
+            "members": [
+            ],
+            "name": "croptails::core::components::Active",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 655,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "croptails::core::components::Damage",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 656,
+            "members": [
+                {
+                    "name": "current",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "max",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "croptails::core::components::Health",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 657,
+            "members": [
+            ],
+            "name": "croptails::objects::components::Collectable",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 658,
+            "members": [
+            ],
+            "name": "croptails::objects::components::Log",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 659,
+            "members": [
+            ],
+            "name": "croptails::objects::components::Object",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 660,
+            "members": [
+            ],
+            "name": "croptails::objects::components::PendingDespawn",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 661,
+            "members": [
+                {
+                    "name": ":variant",
+                    "propertyType": "croptails::objects::components::TreeVariant:::Variant",
+                    "type": "string",
+                    "value": "Small"
+                }
+            ],
+            "name": "croptails::objects::components::TreeVariant",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "id": 662,
+            "name": "croptails::objects::components::TreeVariant:::Variant",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Small",
+                "Large"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 663,
+            "members": [
+                {
+                    "name": "layout",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "texture",
+                    "type": "file",
+                    "value": ""
+                }
+            ],
+            "name": "croptails::objects::resources::ObjectsAtlas",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 664,
+            "members": [
+            ],
+            "name": "croptails::tools::components::Axe",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 665,
+            "members": [
+            ],
+            "name": "croptails::tools::components::Hoe",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 666,
+            "members": [
+            ],
+            "name": "croptails::tools::components::ToolMarker",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 667,
+            "members": [
+            ],
+            "name": "croptails::tools::components::WateringCan",
             "type": "class",
             "useAs": [
                 "property"

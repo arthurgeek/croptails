@@ -115,3 +115,48 @@ impl Log {
         world.commands().entity(ctx.entity).insert(sprite);
     }
 }
+
+/// A rock that can be broken with an axe.
+#[derive(Component, Reflect, Default)]
+#[reflect(Component, Default)]
+#[require(Name = "Rock", Health, Object)]
+#[component(on_add = Self::on_add)]
+pub struct Rock;
+
+impl Rock {
+    fn on_add(mut world: DeferredWorld, ctx: HookContext) {
+        world.commands().entity(ctx.entity).with_child((
+            ToolTarget::<Axe>::new(),
+            Collider::rectangle(14.0, 10.0),
+            Transform::from_translation(Vec3::new(8.0, 6.0, 0.0)),
+        ));
+    }
+}
+
+/// A collectable stone dropped by rocks.
+#[derive(Component, Reflect, Default)]
+#[reflect(Component)]
+#[require(
+    Name = "Stone",
+    Collectable,
+    Sensor,
+    Collider = Collider::rectangle(8.0, 6.0),
+    CollisionLayers = CollisionLayers::new(GameLayer::Collectable, GameLayer::Player),
+    CollisionEventsEnabled,
+)]
+#[component(on_add = Self::on_add)]
+pub struct Stone;
+
+impl Stone {
+    fn on_add(mut world: DeferredWorld, ctx: HookContext) {
+        let atlas = world.resource::<ObjectsAtlas>();
+        let sprite = Sprite::from_atlas_image(
+            atlas.texture.clone(),
+            TextureAtlas {
+                layout: atlas.layout.clone(),
+                index: tiles::STONE,
+            },
+        );
+        world.commands().entity(ctx.entity).insert(sprite);
+    }
+}

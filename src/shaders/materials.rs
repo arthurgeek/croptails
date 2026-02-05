@@ -1,7 +1,9 @@
 use bevy::{
     mesh::MeshVertexBufferLayoutRef,
     prelude::*,
-    render::render_resource::{AsBindGroup, RenderPipelineDescriptor, SpecializedMeshPipelineError},
+    render::render_resource::{
+        AsBindGroup, RenderPipelineDescriptor, SpecializedMeshPipelineError,
+    },
     shader::ShaderRef,
     sprite_render::{AlphaMode2d, Material2d, Material2dKey},
 };

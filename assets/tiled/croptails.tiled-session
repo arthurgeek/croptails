@@ -83,6 +83,20 @@
                 "y": 67.97810262888768
             }
         },
+        "maps/test_map_objects_rocks.tmx": {
+            "scale": 5.9495,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 121.60685771913606,
+                "y": 65.55172703588538
+            }
+        },
+        "maps/test_map_objects_rocks.tmx#large_tree": {
+            "scaleInDock": 1
+        },
+        "maps/test_map_objects_rocks.tmx#small_tree": {
+            "scaleInDock": 1
+        },
         "maps/test_map_objects_trees.tmx": {
             "expandedObjectLayers": [
                 10
@@ -201,11 +215,12 @@
         "maps/test_map_objects_trees.tmx"
     ],
     "project": "croptails.tiled-project",
-    "property.type": "croptails::objects::components::Tree",
+    "property.type": "croptails::objects::components::Rock",
     "recentFiles": [
+        "maps/test_map_objects_rocks.tmx",
+        "tilesets/basic_grass_biome_things.tsx",
         "maps/test_map_objects_trees.tmx",
         "tilesets/large_tree.tmx",
-        "tilesets/basic_grass_biome_things.tsx",
         "maps/test_map_house.tmx",
         "maps/houses/small_house.tmx",
         "tilesets/small_house.tsx",
@@ -213,8 +228,7 @@
         "tilesets/medium_house.tsx",
         "tilesets/house_prefabs.tsx",
         "maps/houses/large_house.tmx",
-        "tilesets/doors.tsx",
-        "tilesets/basic_furniture.tsx"
+        "tilesets/doors.tsx"
     ],
     "tileset.embedInMap": true,
     "tileset.lastUsedFilter": "All Files (*)",

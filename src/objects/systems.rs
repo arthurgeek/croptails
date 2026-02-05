@@ -1,4 +1,4 @@
-use super::components::{Collectable, Log, Tree};
+use super::components::{Collectable, Log, Rock, Stone, Tree};
 use super::resources::ObjectsAtlas;
 use crate::core::components::{Damage, Health};
 use crate::core::messages::Hit;
@@ -33,9 +33,17 @@ pub fn configure_tree_health(mut trees: Query<(&Tree, &mut Health), Added<Tree>>
     }
 }
 
+/// Sets rock health when spawned (5 HP).
+pub fn configure_rock_health(mut rocks: Query<&mut Health, Added<Rock>>) {
+    for mut health in &mut rocks {
+        health.max = 5.0;
+        health.current = 5.0;
+    }
+}
+
 /// Applies damage to trees when hit by an axe.
 /// Despawns immediately and spawns logs when health reaches 0.
-pub fn apply_axe_damage(
+pub fn apply_axe_damage_tree(
     mut commands: Commands,
     mut hits: MessageReader<Hit<Axe>>,
     mut targets: Query<(&mut Health, &Tree, &GlobalTransform)>,
@@ -51,13 +59,42 @@ pub fn apply_axe_damage(
         };
 
         health.current -= damage.0;
-        info!("Tree hit! Health: {}/{}", health.current, health.max);
 
         if health.current <= 0.0 {
             let pos = transform.translation();
             for offset in tree.variant.log_offsets() {
                 commands.spawn((Log, Transform::from_translation(pos + *offset)));
             }
+            commands.entity(hit.target.entity()).despawn();
+        }
+    }
+}
+
+/// Applies damage to rocks when hit by an axe.
+/// Despawns immediately and spawns stone when health reaches 0.
+pub fn apply_axe_damage_rock(
+    mut commands: Commands,
+    mut hits: MessageReader<Hit<Axe>>,
+    mut targets: Query<(&mut Health, &GlobalTransform), With<Rock>>,
+    tools: Query<&Damage>,
+) {
+    for hit in hits.read() {
+        let Ok(damage) = tools.get(hit.tool.entity()) else {
+            continue;
+        };
+
+        let Ok((mut health, transform)) = targets.get_mut(hit.target.entity()) else {
+            continue;
+        };
+
+        health.current -= damage.0;
+
+        if health.current <= 0.0 {
+            let pos = transform.translation();
+            commands.spawn((
+                Stone,
+                Transform::from_translation(pos + Vec3::new(8.0, 8.0, 0.0)),
+            ));
             commands.entity(hit.target.entity()).despawn();
         }
     }

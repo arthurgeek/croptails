@@ -1,7 +1,7 @@
 use super::{
-    components::{Chicken, ChickenAnimation},
-    resources::ChickenAtlas,
-    systems::{hide_tiled_chicken_visual, load_chicken_atlas},
+    components::{Chicken, ChickenAnimation, Cow, CowAnimation},
+    resources::{ChickenAtlas, CowAtlas},
+    systems::{hide_tiled_npc_visual, load_chicken_atlas, load_cow_atlas},
 };
 use crate::core::systems::{on_start_moving, on_stop_moving, sync_animation};
 use crate::npcs::NpcSystemSet;
@@ -11,23 +11,32 @@ pub struct AnimalsPlugin;
 
 impl Plugin for AnimalsPlugin {
     fn build(&self, app: &mut App) {
-        app.register_type::<ChickenAtlas>()
+        app // Chicken
+            .register_type::<ChickenAtlas>()
             .register_type::<Chicken>()
             .register_type::<ChickenAnimation>()
-            // Startup
-            .add_systems(Startup, load_chicken_atlas)
+            // Cow
+            .register_type::<CowAtlas>()
+            .register_type::<Cow>()
+            .register_type::<CowAnimation>()
+            // Startup - load atlases
+            .add_systems(Startup, (load_chicken_atlas, load_cow_atlas))
             // Animation - use generic systems from core, run after NPC movement
             .add_systems(
                 FixedUpdate,
                 (
+                    // Chicken animation
                     on_start_moving::<ChickenAnimation>,
                     on_stop_moving::<ChickenAnimation>,
                     sync_animation::<ChickenAnimation>,
+                    // Cow animation
+                    on_start_moving::<CowAnimation>,
+                    on_stop_moving::<CowAnimation>,
+                    sync_animation::<CowAnimation>,
                 )
-                    .chain()
                     .after(NpcSystemSet::Movement),
             )
-            // Hide Tiled visual (we use our own sprite)
-            .add_systems(Update, hide_tiled_chicken_visual);
+            // Hide Tiled visual for all NPCs (we use our own sprites)
+            .add_systems(Update, hide_tiled_npc_visual);
     }
 }

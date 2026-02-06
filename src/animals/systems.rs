@@ -1,4 +1,5 @@
-use super::{components::Chicken, resources::ChickenAtlas};
+use super::resources::{ChickenAtlas, CowAtlas};
+use crate::npcs::components::Npc;
 use bevy::prelude::*;
 use bevy_ecs_tiled::prelude::TiledObjectVisuals;
 
@@ -20,14 +21,36 @@ pub fn load_chicken_atlas(
     commands.insert_resource(ChickenAtlas { texture, layout });
 }
 
-/// Hides the Tiled sprite visual for chickens (we use our own animated sprite).
-pub fn hide_tiled_chicken_visual(
+/// Hides the Tiled sprite visual for NPCs (we use our own animated sprites).
+pub fn hide_tiled_npc_visual(
     mut commands: Commands,
-    chickens: Query<&TiledObjectVisuals, Added<Chicken>>,
+    npcs: Query<&TiledObjectVisuals, Added<Npc>>,
 ) {
-    for visuals in &chickens {
+    for visuals in &npcs {
         for visual_entity in visuals.iter() {
             commands.entity(visual_entity).insert(Visibility::Hidden);
         }
     }
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Cow
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// Loads the cow sprite sheet.
+pub fn load_cow_atlas(
+    mut commands: Commands,
+    asset_server: Res<AssetServer>,
+    mut layouts: ResMut<Assets<TextureAtlasLayout>>,
+) {
+    let texture = asset_server.load("game/characters/cow_sprites.png");
+    // 5 columns x 2 rows, 32x32 per frame
+    let layout = layouts.add(TextureAtlasLayout::from_grid(
+        UVec2::splat(32),
+        5,
+        2,
+        None,
+        None,
+    ));
+    commands.insert_resource(CowAtlas { texture, layout });
 }

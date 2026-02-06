@@ -14303,6 +14303,7 @@
             "members": [
                 {
                     "name": "0",
+                    "propertyType": "moonshine_kind::instance::Instance<croptails::navigation::components::NavigationRegion>",
                     "type": "class",
                     "value": {
                     }
@@ -14321,6 +14322,123 @@
             "members": [
             ],
             "name": "croptails::navigation::components::NavigationRegion",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 685,
+            "members": [
+            ],
+            "name": "croptails::animals::components::Cow",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 686,
+            "members": [
+            ],
+            "name": "croptails::npcs::components::Npc",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 687,
+            "members": [
+                {
+                    "name": "current",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "target",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "croptails::npcs::components::WalkCycleProgress",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 688,
+            "members": [
+                {
+                    "name": "max",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "min",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "croptails::npcs::components::WalkCycles",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 689,
+            "members": [
+                {
+                    "name": "max_idle_time",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "max_speed",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "min_idle_time",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "min_speed",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "croptails::npcs::components::WanderConfig",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 690,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "object",
+                    "value": 0
+                }
+            ],
+            "name": "moonshine_kind::instance::Instance<croptails::navigation::components::NavigationRegion>",
             "type": "class",
             "useAs": [
                 "property"

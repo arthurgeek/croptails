@@ -83,6 +83,29 @@
                 "y": 67.97810262888768
             }
         },
+        "maps/test_map_npc_chicken.tmx": {
+            "scale": 1.3846,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 340.53156146179396,
+                "y": 228.94698829986996
+            }
+        },
+        "maps/test_map_npc_chicken.tmx#chicken_sprites": {
+            "scaleInDock": 4.1442
+        },
+        "maps/test_map_npc_chicken.tmx#cow_sprites": {
+            "scaleInDock": 1
+        },
+        "maps/test_map_npc_chicken.tmx#large_tree": {
+            "scaleInDock": 1
+        },
+        "maps/test_map_npc_chicken.tmx#larger_biome_things": {
+            "scaleInDock": 1
+        },
+        "maps/test_map_npc_chicken.tmx#small_tree": {
+            "scaleInDock": 1
+        },
         "maps/test_map_objects_rocks.tmx": {
             "expandedObjectLayers": [
                 10
@@ -120,11 +143,11 @@
             "scaleInEditor": 20.3218
         },
         "maps/test_map_objects_y_sort.tmx": {
-            "scale": 3.3464,
-            "selectedLayer": 4,
+            "scale": 1.9512,
+            "selectedLayer": 3,
             "viewCenter": {
-                "x": 235.0286875448243,
-                "y": 165.55103992349987
+                "x": 177.58302583025826,
+                "y": 160.9266092660926
             }
         },
         "maps/test_map_objects_y_sort.tmx#large_tree": {
@@ -223,7 +246,7 @@
     },
     "frame.defaultDuration": 200,
     "last.externalTilesetPath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/tilesets",
-    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/tilesets",
+    "last.imagePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/game/characters",
     "last.objectTypesPath": "/Users/arthurzapparoli/Development/rust/croptails/tiled_types_export.json",
     "last.worldFilePath": "/Users/arthurzapparoli/Development/rust/croptails/assets/tiled/maps/worlds",
     "loadedWorlds": [
@@ -240,8 +263,10 @@
         "maps/test_map_objects_trees.tmx"
     ],
     "project": "croptails.tiled-project",
-    "property.type": "croptails::core::components::YSort",
+    "property.type": "croptails::animals::components::Chicken",
     "recentFiles": [
+        "maps/test_map_npc_chicken.tmx",
+        "maps/test_map_objects_y_sort.tmx",
         "tilesets/basic_grass_biome_things.tsx",
         "maps/test_map_objects_trees.tmx",
         "maps/test_map_objects_rocks.tmx",
@@ -251,9 +276,7 @@
         "tilesets/small_house.tsx",
         "maps/houses/medium_house.tmx",
         "tilesets/medium_house.tsx",
-        "tilesets/house_prefabs.tsx",
-        "maps/houses/large_house.tmx",
-        "tilesets/doors.tsx"
+        "tilesets/house_prefabs.tsx"
     ],
     "tileset.embedInMap": true,
     "tileset.lastUsedFilter": "All Files (*)",
@@ -262,5 +285,5 @@
         "height": 32,
         "width": 32
     },
-    "tileset.type": 1
+    "tileset.type": 0
 }

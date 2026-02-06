@@ -14102,8 +14102,225 @@
             "drawFill": true,
             "id": 672,
             "members": [
+                {
+                    "name": "offset",
+                    "type": "float",
+                    "value": 0
+                }
             ],
             "name": "croptails::core::components::YSort",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 673,
+            "members": [
+            ],
+            "name": "croptails::animals::components::Chicken",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 674,
+            "members": [
+                {
+                    "name": ":variant",
+                    "propertyType": "croptails::animals::components::ChickenAnimation:::Variant",
+                    "type": "string",
+                    "value": "Idle"
+                }
+            ],
+            "name": "croptails::animals::components::ChickenAnimation",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "id": 675,
+            "name": "croptails::animals::components::ChickenAnimation:::Variant",
+            "storageType": "string",
+            "type": "enum",
+            "values": [
+                "Idle",
+                "Walk"
+            ],
+            "valuesAsFlags": false
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 676,
+            "members": [
+                {
+                    "name": "0",
+                    "propertyType": "glam::Vec2",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "croptails::animals::components::HomePosition",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 677,
+            "members": [
+                {
+                    "name": "0",
+                    "propertyType": "glam::Vec2",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "croptails::animals::components::MoveDirection",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 678,
+            "members": [
+                {
+                    "name": "current",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "target",
+                    "type": "int",
+                    "value": 0
+                }
+            ],
+            "name": "croptails::animals::components::WalkCycles",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 679,
+            "members": [
+                {
+                    "name": "max_idle_time",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "max_speed",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "max_walk_cycles",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "min_idle_time",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "min_speed",
+                    "type": "float",
+                    "value": 0
+                },
+                {
+                    "name": "min_walk_cycles",
+                    "type": "int",
+                    "value": 0
+                },
+                {
+                    "name": "wander_radius",
+                    "type": "float",
+                    "value": 0
+                }
+            ],
+            "name": "croptails::animals::components::WanderConfig",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 680,
+            "members": [
+                {
+                    "name": "layout",
+                    "type": "file",
+                    "value": ""
+                },
+                {
+                    "name": "texture",
+                    "type": "file",
+                    "value": ""
+                }
+            ],
+            "name": "croptails::animals::resources::ChickenAtlas",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 681,
+            "members": [
+            ],
+            "name": "croptails::core::components::Moving",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 682,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "class",
+                    "value": {
+                    }
+                }
+            ],
+            "name": "croptails::navigation::components::InNavigationRegion",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 684,
+            "members": [
+            ],
+            "name": "croptails::navigation::components::NavigationRegion",
             "type": "class",
             "useAs": [
                 "property"

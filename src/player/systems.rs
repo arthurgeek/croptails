@@ -1,12 +1,11 @@
 use super::{
     components::{
-        Busy, Chopping, EquippedTool, Moving, Player, PlayerAnimation, PlayerAtlasKind, Tiling,
-        Watering,
+        Busy, Chopping, EquippedTool, Player, PlayerAnimation, PlayerAtlasKind, Tiling, Watering,
     },
     resources::{PlayerActionsAtlas, PlayerAtlas},
 };
 use crate::{
-    core::components::{Active, AnimationFinished, Speed, SpriteAnimation},
+    core::components::{Active, AnimationFinished, Moving, Speed, SpriteAnimation},
     physics::GameLayer,
     player::resources::PlayerDirection,
     tools::components::ToolMarker,

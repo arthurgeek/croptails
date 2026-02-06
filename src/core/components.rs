@@ -1,4 +1,4 @@
-use bevy::prelude::*;
+use bevy::{ecs::component::Mutable, prelude::*};
 use std::time::Duration;
 
 /// Sprite animation with optional looping (sequential frames).
@@ -114,4 +114,27 @@ pub struct Active;
 #[reflect(Component, Default)]
 pub struct YSort {
     pub offset: f32,
+}
+
+/// Marker: entity is currently moving.
+#[derive(Component, Reflect, Default)]
+#[reflect(Component)]
+pub struct Moving;
+
+/// Trait for animation enums that support idle/walk states.
+pub trait CharacterAnimation: Component<Mutability = Mutable> + Copy + PartialEq {
+    /// Returns (first_frame, last_frame) for this animation state.
+    fn frames(self) -> (usize, usize);
+    /// Whether this animation loops.
+    fn loops(self) -> bool {
+        true
+    }
+    /// Frames per second for this animation.
+    fn fps(self) -> u8 {
+        5
+    }
+    /// Convert to idle animation.
+    fn to_idle(self) -> Self;
+    /// Convert to walk animation.
+    fn to_walk(self) -> Self;
 }

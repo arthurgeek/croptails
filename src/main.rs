@@ -1,11 +1,14 @@
 use bevy::{prelude::*, window::WindowResolution};
 
+mod animals;
 mod camera;
 mod core;
 #[cfg(feature = "debug")]
 mod debug;
 mod door;
 mod interactable;
+mod navigation;
+mod npcs;
 mod objects;
 mod physics;
 mod player;
@@ -13,10 +16,13 @@ mod shaders;
 mod tiled;
 mod tools;
 
+use animals::AnimalsPlugin;
 use camera::CameraPlugin;
 use core::CorePlugin;
 use door::DoorPlugin;
 use interactable::InteractablePlugin;
+use navigation::NavigationPlugin;
+use npcs::NpcsPlugin;
 use objects::ObjectsPlugin;
 use physics::PhysicsPlugin;
 use player::PlayerPlugin;
@@ -49,6 +55,9 @@ fn main() -> AppExit {
         ObjectsPlugin,
         ToolsPlugin,
         ShadersPlugin,
+        NavigationPlugin,
+        NpcsPlugin,
+        AnimalsPlugin,
     ));
 
     #[cfg(feature = "debug")]

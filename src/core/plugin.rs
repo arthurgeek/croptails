@@ -1,5 +1,6 @@
 use super::components::{
-    Active, AnimationFinished, Damage, Health, SequenceAnimation, Speed, SpriteAnimation, YSort,
+    Active, AnimationFinished, Damage, Health, Moving, SequenceAnimation, Speed, SpriteAnimation,
+    YSort,
 };
 use super::messages::Hit;
 use super::systems::{animate_sequences, animate_sprites, apply_y_sort};
@@ -13,6 +14,7 @@ impl Plugin for CorePlugin {
         app.register_type::<SpriteAnimation>()
             .register_type::<SequenceAnimation>()
             .register_type::<AnimationFinished>()
+            .register_type::<Moving>()
             .register_type::<Speed>()
             .register_type::<Health>()
             .register_type::<Damage>()

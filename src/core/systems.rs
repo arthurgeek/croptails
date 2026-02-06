@@ -1,4 +1,6 @@
-use super::components::{AnimationFinished, SequenceAnimation, SpriteAnimation, YSort};
+use super::components::{
+    AnimationFinished, CharacterAnimation, Moving, SequenceAnimation, SpriteAnimation, YSort,
+};
 use bevy::prelude::*;
 use moonshine_kind::Instance;
 
@@ -78,6 +80,47 @@ pub fn animate_sequences(
                 // One-shot finished
                 commands.entity(entity.entity()).insert(AnimationFinished);
             }
+        }
+    }
+}
+
+/// Generic system: when Moving added, switch to walk animation.
+pub fn on_start_moving<A: CharacterAnimation>(mut query: Query<&mut A, Added<Moving>>) {
+    for mut anim in &mut query {
+        *anim = (*anim).to_walk();
+    }
+}
+
+/// Generic system: when Moving removed, switch to idle animation.
+pub fn on_stop_moving<A: CharacterAnimation>(
+    mut query: Query<&mut A>,
+    mut removed: RemovedComponents<Moving>,
+) {
+    for entity in removed.read() {
+        if let Ok(mut anim) = query.get_mut(entity) {
+            *anim = (*anim).to_idle();
+        }
+    }
+}
+
+/// Generic system: sync SpriteAnimation when animation component changes.
+pub fn sync_animation<A: CharacterAnimation>(
+    mut commands: Commands,
+    mut query: Query<(Instance<A>, &A, &mut Sprite), Changed<A>>,
+) {
+    for (instance, anim, mut sprite) in &mut query {
+        let (first, last) = anim.frames();
+        let sprite_anim = if anim.loops() {
+            SpriteAnimation::new(first, last, anim.fps())
+        } else {
+            SpriteAnimation::once(first, last, anim.fps())
+        };
+        commands
+            .entity(instance.entity())
+            .insert(sprite_anim)
+            .remove::<AnimationFinished>();
+        if let Some(atlas) = &mut sprite.texture_atlas {
+            atlas.index = first;
         }
     }
 }

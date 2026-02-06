@@ -1,5 +1,5 @@
 use super::{
-    components::{Busy, Chopping, EquippedTool, Moving, Player, PlayerAnimation, Tiling, Watering},
+    components::{Busy, Chopping, EquippedTool, Player, PlayerAnimation, Tiling, Watering},
     resources::{PlayerActionsAtlas, PlayerAtlas, PlayerDirection},
     systems::{
         activate_tool_on_impact_frame, apply_player_movement, deactivate_tool_on_chopping_end,
@@ -29,7 +29,6 @@ impl Plugin for PlayerPlugin {
         app.register_type::<PlayerAtlas>()
             .register_type::<PlayerActionsAtlas>()
             .register_type::<Player>()
-            .register_type::<Moving>()
             .register_type::<Busy>()
             .register_type::<Chopping>()
             .register_type::<Tiling>()

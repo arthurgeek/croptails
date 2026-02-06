@@ -1,5 +1,9 @@
 use super::resources::PlayerAtlas;
-use crate::{core::components::{Speed, YSort}, physics::GameLayer};
+use crate::{
+    core::components::{Moving, Speed, YSort},
+    navigation::components::NavMeshObstacle,
+    physics::GameLayer,
+};
 use avian2d::prelude::*;
 use bevy::{
     ecs::{lifecycle::HookContext, world::DeferredWorld},
@@ -43,7 +47,8 @@ impl Player {
         }
 
         // Spawn collider as child with offset (so it's at the player's feet)
-        // Player is on Player layer, collides with Default layer
+        // Player is on Player layer, collides with Default, Interactable, Collectable, and Npc
+        // NavMeshObstacle makes NPCs path around the player
         world.commands().entity(entity).with_child((
             Collider::capsule(3.0, 3.0),
             Transform::from_translation(Vec3::new(0.0, Self::COLLIDER_OFFSET_Y, 0.0)),
@@ -53,8 +58,10 @@ impl Player {
                     GameLayer::Default,
                     GameLayer::Interactable,
                     GameLayer::Collectable,
+                    GameLayer::Npc,
                 ],
             ),
+            NavMeshObstacle,
         ));
     }
 }
@@ -91,11 +98,6 @@ pub enum PlayerAtlasKind {
     Base,
     Actions,
 }
-
-/// Marker: player is currently moving.
-#[derive(Component, Reflect, Default)]
-#[reflect(Component)]
-pub struct Moving;
 
 /// Marker: player is busy (using tool, etc.) - locks movement.
 #[derive(Component, Reflect, Default)]

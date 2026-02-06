@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="40" height="22" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="49">
+ <tileset firstgid="1" source="../tilesets/water.tsx"/>
+ <tileset firstgid="5" source="../tilesets/grass.tsx"/>
+ <tileset firstgid="82" source="../tilesets/tilled_dirt_wide.tsx"/>
+ <tileset firstgid="159" source="../tilesets/basic_grass_biome_things.tsx"/>
+ <tileset firstgid="204" source="../tilesets/small_house.tsx"/>
+ <tileset firstgid="205" name="small_tree" tilewidth="16" tileheight="32" tilecount="1" columns="1">
+  <image source="../tilesets/small_tree.png" width="16" height="32"/>
+  <tile id="0">
+   <objectgroup draworder="index" id="3">
+    <object id="4" x="4" y="20" width="8" height="8">
+     <ellipse/>
+    </object>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="206" name="large_tree" tilewidth="32" tileheight="32" tilecount="1" columns="1">
+  <image source="../tilesets/large_tree.png" width="32" height="32"/>
+  <tile id="0">
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="11" y="22" width="10" height="10">
+     <ellipse/>
+    </object>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="207" name="larger_biome_things" tilewidth="32" tileheight="32" tilecount="4" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <image source="../tilesets/large_tree.png" width="32" height="32"/>
+  </tile>
+  <tile id="1">
+   <image source="../tilesets/small_tree.png" width="16" height="32"/>
+  </tile>
+  <tile id="4">
+   <image source="../tilesets/sunflower.png" width="16" height="32"/>
+  </tile>
+  <tile id="5">
+   <image source="../tilesets/heart_tree.png" width="32" height="32"/>
+   <objectgroup draworder="index" id="2">
+    <object id="1" x="13" y="24" width="6" height="5"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="213" name="chicken_sprites" tilewidth="16" tileheight="16" tilecount="8" columns="4">
+  <image source="../../game/characters/chicken_sprites.png" width="64" height="32"/>
+ </tileset>
+ <tileset firstgid="221" name="cow_sprites" tilewidth="32" tileheight="32" tilecount="6" columns="3">
+  <image source="../../game/characters/cow_sprites.png" width="96" height="64"/>
+ </tileset>
+ <layer id="1" name="Water" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztw0ENAAAMA6Grf9OzsQckrJqqqqrvH7f5A3E=
+  </data>
+ </layer>
+ <layer id="7" name="Grass" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzd0zEOgCAMBVAWdFUTHFATvf8lZZCEkBpLoS1x+BvR11/wxhifxIYMWcbsjEai6wqZs5xEKzQrdfYJcEE5kf+wL7NC38MYsT6sGWOLWZh9tcH4tpC1Y59mh3/xae0Y69Mylvik9+xCjo59pd3FHe9Ce6b4JHus8XG/FcrdkzTWdCdhbOXjeDMtdsvRpXvm5LDlXWL6dMlZbteXFYq0Rzo3OvdHpw==
+  </data>
+ </layer>
+ <layer id="12" name="Undergrowth" width="40" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20ON6AAAAB4MA3AAAE=
+  </data>
+ </layer>
+ <objectgroup id="15" name="Overgrowth">
+  <properties>
+   <property name="YSort" type="class" propertytype="croptails::core::components::YSort"/>
+  </properties>
+ </objectgroup>
+ <objectgroup id="10" name="Spawns">
+  <properties>
+   <property name="YSort" type="class" propertytype="croptails::core::components::YSort"/>
+  </properties>
+  <object id="7" name="PlayerSpawn" x="199" y="73">
+   <point/>
+  </object>
+  <object id="26" x="149" y="123">
+   <properties>
+    <property name="NavigationRegion" type="class" propertytype="croptails::navigation::components::NavigationRegion"/>
+   </properties>
+   <polygon points="0,0 102,-44 173,-34 200,5 226,70 198,115 152,150 89,135 24,105"/>
+  </object>
+  <object id="29" gid="213" x="303" y="197" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="31" gid="213" x="276" y="108" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="32" gid="213" x="294" y="152" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="33" gid="213" x="266" y="236" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="34" gid="213" x="211" y="216" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="35" gid="213" x="202" y="163" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="36" gid="213" x="233" y="131" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="38" gid="213" x="318" y="131" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="39" gid="213" x="340" y="213" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="41" gid="213" x="259" y="160" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="42" gid="213" x="303" y="225" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="43" gid="213" x="323" y="155" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="45" gid="213" x="176" y="159" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="46" gid="213" x="210" y="120" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+  <object id="47" gid="213" x="246" y="194" width="16" height="16">
+   <properties>
+    <property name="Chicken" type="class" propertytype="croptails::animals::components::Chicken"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

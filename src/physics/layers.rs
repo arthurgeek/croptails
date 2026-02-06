@@ -16,4 +16,6 @@ pub enum GameLayer {
     Object,
     /// Collectable items - can be picked up by Player
     Collectable,
+    /// NPC layer - chickens, etc. - collides with Default, Player, Npc
+    Npc,
 }

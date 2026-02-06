@@ -9,23 +9,27 @@ use bevy::{
 };
 
 #[derive(Asset, AsBindGroup, TypePath, Clone)]
-pub struct TreeShakeMaterial {
+pub struct ShakeMaterial {
     #[uniform(0)]
     pub shake_intensity: f32,
     #[uniform(0)]
     pub shake_speed: f32,
+    #[uniform(0)]
+    pub uv_offset: Vec2,
+    #[uniform(0)]
+    pub uv_scale: Vec2,
     #[texture(1)]
     #[sampler(2)]
     pub texture: Handle<Image>,
 }
 
-impl Material2d for TreeShakeMaterial {
+impl Material2d for ShakeMaterial {
     fn vertex_shader() -> ShaderRef {
-        "shaders/tree_shake.wgsl".into()
+        "shaders/shake.wgsl".into()
     }
 
     fn fragment_shader() -> ShaderRef {
-        "shaders/tree_shake.wgsl".into()
+        "shaders/shake.wgsl".into()
     }
 
     fn alpha_mode(&self) -> AlphaMode2d {
@@ -35,7 +39,7 @@ impl Material2d for TreeShakeMaterial {
     fn specialize(
         descriptor: &mut RenderPipelineDescriptor,
         layout: &MeshVertexBufferLayoutRef,
-        _key: Material2dKey<Self>,
+        _key: Material2dKey<ShakeMaterial>,
     ) -> Result<(), SpecializedMeshPipelineError> {
         let vertex_layout = layout.0.get_layout(&[
             Mesh::ATTRIBUTE_POSITION.at_shader_location(0),

@@ -84,11 +84,11 @@
             }
         },
         "maps/test_map_objects_rocks.tmx": {
-            "scale": 5.9495,
+            "scale": 2.2983,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 121.60685771913606,
-                "y": 65.55172703588538
+                "x": 165.99225514510726,
+                "y": 90.50167515119873
             }
         },
         "maps/test_map_objects_rocks.tmx#large_tree": {

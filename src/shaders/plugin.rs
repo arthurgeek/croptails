@@ -1,13 +1,13 @@
-use super::materials::TreeShakeMaterial;
-use super::systems::{convert_trees_to_mesh2d, trigger_tree_shake, update_tree_shake};
+use super::materials::ShakeMaterial;
+use super::systems::{setup_rock_shaker, setup_tree_shaker, trigger_shake, update_shake};
 use bevy::{prelude::*, sprite_render::Material2dPlugin};
 
 pub struct ShadersPlugin;
 
 impl Plugin for ShadersPlugin {
     fn build(&self, app: &mut App) {
-        app.add_plugins(Material2dPlugin::<TreeShakeMaterial>::default())
-            .add_systems(Update, convert_trees_to_mesh2d)
-            .add_systems(Update, (trigger_tree_shake, update_tree_shake));
+        app.add_plugins(Material2dPlugin::<ShakeMaterial>::default())
+            .add_systems(Update, (setup_tree_shaker, setup_rock_shaker))
+            .add_systems(Update, (trigger_shake, update_shake));
     }
 }

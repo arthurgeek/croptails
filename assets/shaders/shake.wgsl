@@ -12,12 +12,14 @@ struct VertexOutput {
     @location(0) uv: vec2<f32>,
 }
 
-struct TreeShakeMaterial {
+struct ShakeMaterial {
     shake_intensity: f32,
     shake_speed: f32,
+    uv_offset: vec2<f32>,
+    uv_scale: vec2<f32>,
 }
 
-@group(2) @binding(0) var<uniform> material: TreeShakeMaterial;
+@group(2) @binding(0) var<uniform> material: ShakeMaterial;
 @group(2) @binding(1) var base_texture: texture_2d<f32>;
 @group(2) @binding(2) var base_sampler: sampler;
 
@@ -41,7 +43,9 @@ fn vertex(v: Vertex) -> VertexOutput {
         get_world_from_local(v.instance_index),
         vec4<f32>(position, 1.0),
     );
-    out.uv = v.uv;
+
+    // Transform UV to atlas region
+    out.uv = material.uv_offset + v.uv * material.uv_scale;
 
     return out;
 }

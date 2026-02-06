@@ -1,8 +1,8 @@
 use super::components::{
-    Active, AnimationFinished, Damage, Health, SequenceAnimation, Speed, SpriteAnimation,
+    Active, AnimationFinished, Damage, Health, SequenceAnimation, Speed, SpriteAnimation, YSort,
 };
 use super::messages::Hit;
-use super::systems::{animate_sequences, animate_sprites};
+use super::systems::{animate_sequences, animate_sprites, apply_y_sort};
 use crate::tools::components::{Axe, Hoe, WateringCan};
 use bevy::prelude::*;
 
@@ -17,9 +17,11 @@ impl Plugin for CorePlugin {
             .register_type::<Health>()
             .register_type::<Damage>()
             .register_type::<Active>()
+            .register_type::<YSort>()
             .add_message::<Hit<Axe>>()
             .add_message::<Hit<Hoe>>()
             .add_message::<Hit<WateringCan>>()
-            .add_systems(Update, (animate_sprites, animate_sequences));
+            .add_systems(Update, (animate_sprites, animate_sequences))
+            .add_systems(PostUpdate, apply_y_sort);
     }
 }

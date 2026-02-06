@@ -107,3 +107,11 @@ pub struct Damage(pub f32);
 #[derive(Component, Reflect, Default)]
 #[reflect(Component)]
 pub struct Active;
+
+/// Marker for layers/entities with Y-sorting enabled.
+/// `offset` is added to Y before calculating Z (use for foot position adjustment).
+#[derive(Component, Reflect, Default)]
+#[reflect(Component, Default)]
+pub struct YSort {
+    pub offset: f32,
+}

@@ -1,5 +1,5 @@
 use super::resources::PlayerAtlas;
-use crate::{core::components::Speed, physics::GameLayer};
+use crate::{core::components::{Speed, YSort}, physics::GameLayer};
 use avian2d::prelude::*;
 use bevy::{
     ecs::{lifecycle::HookContext, world::DeferredWorld},
@@ -16,6 +16,7 @@ use bevy::{
     RigidBody::Dynamic,
     LockedAxes::ROTATION_LOCKED,
     Speed = Speed(50.0),
+    YSort = YSort { offset: -8.0 },
   )]
 #[component(on_add = Self::on_add)]
 pub struct Player;

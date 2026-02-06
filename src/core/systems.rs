@@ -1,6 +1,25 @@
-use super::components::{AnimationFinished, SequenceAnimation, SpriteAnimation};
+use super::components::{AnimationFinished, SequenceAnimation, SpriteAnimation, YSort};
 use bevy::prelude::*;
 use moonshine_kind::Instance;
+
+/// Updates Z coordinate based on Y for entities in Y-sorted layers or with YSort directly.
+pub fn apply_y_sort(
+    y_sorted_layers: Query<(Instance<YSort>, &YSort)>,
+    mut children: Query<(&ChildOf, &mut Transform), Without<YSort>>,
+    mut y_sorted_entities: Query<(&mut Transform, &YSort)>,
+) {
+    // Y-sort children of YSort layers
+    for (child_of, mut transform) in &mut children {
+        if let Ok((_, y_sort)) = y_sorted_layers.get(child_of.parent()) {
+            transform.translation.z = -(transform.translation.y + y_sort.offset);
+        }
+    }
+
+    // Y-sort entities with YSort directly
+    for (mut transform, y_sort) in &mut y_sorted_entities {
+        transform.translation.z = -(transform.translation.y + y_sort.offset);
+    }
+}
 
 /// Ticks sprite animations and advances frames (sequential).
 pub fn animate_sprites(

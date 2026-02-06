@@ -14079,6 +14079,35 @@
             "useAs": [
                 "property"
             ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 671,
+            "members": [
+                {
+                    "name": "0",
+                    "type": "file",
+                    "value": ""
+                }
+            ],
+            "name": "bevy_sprite_render::mesh2d::material::MeshMaterial2d<croptails::shaders::materials::ShakeMaterial>",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
+        },
+        {
+            "color": "#ff000000",
+            "drawFill": true,
+            "id": 672,
+            "members": [
+            ],
+            "name": "croptails::core::components::YSort",
+            "type": "class",
+            "useAs": [
+                "property"
+            ]
         }
     ]
 }

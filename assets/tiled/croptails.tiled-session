@@ -84,6 +84,9 @@
             }
         },
         "maps/test_map_objects_rocks.tmx": {
+            "expandedObjectLayers": [
+                10
+            ],
             "scale": 2.2983,
             "selectedLayer": 2,
             "viewCenter": {
@@ -116,6 +119,26 @@
             "scaleInDock": 1,
             "scaleInEditor": 20.3218
         },
+        "maps/test_map_objects_y_sort.tmx": {
+            "scale": 3.3464,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 235.0286875448243,
+                "y": 165.55103992349987
+            }
+        },
+        "maps/test_map_objects_y_sort.tmx#large_tree": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1
+        },
+        "maps/test_map_objects_y_sort.tmx#larger_biome_things": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 4.8858
+        },
+        "maps/test_map_objects_y_sort.tmx#small_tree": {
+            "scaleInDock": 1
+        },
         "maps/test_map_player.tmx": {
             "scale": 1.376015625,
             "selectedLayer": 2,
@@ -140,8 +163,9 @@
             "scaleInEditor": 4.5329
         },
         "tilesets/basic_grass_biome_things.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 2.7555,
-            "scaleInEditor": 3.5441
+            "scaleInEditor": 7.9025
         },
         "tilesets/doors.tsx": {
             "scaleInDock": 4.2439,
@@ -184,6 +208,7 @@
             "scaleInEditor": 1
         },
         "tilesets/small_house.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -215,11 +240,11 @@
         "maps/test_map_objects_trees.tmx"
     ],
     "project": "croptails.tiled-project",
-    "property.type": "croptails::objects::components::Rock",
+    "property.type": "croptails::core::components::YSort",
     "recentFiles": [
-        "maps/test_map_objects_rocks.tmx",
         "tilesets/basic_grass_biome_things.tsx",
         "maps/test_map_objects_trees.tmx",
+        "maps/test_map_objects_rocks.tmx",
         "tilesets/large_tree.tmx",
         "maps/test_map_house.tmx",
         "maps/houses/small_house.tmx",
@@ -236,5 +261,6 @@
     "tileset.tileSize": {
         "height": 32,
         "width": 32
-    }
+    },
+    "tileset.type": 1
 }
